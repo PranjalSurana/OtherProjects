@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./form-exercise.css">
+    <title>Form with Validation</title>
+    <script defer src="./form-exercise-solution-insubmit.js"></script>
+</head>
+
+<body>
+    <h1>Make a reservation</h1>
+    <form action="results.html">
+        <div class="container">
+            <label for="description" class="col1">Description:</label>
+            <input type="text" id="description" name="description" class="col2" required minlength=3>
+            <label for="from" class="col1">From:</label>
+            <input type="date" id="from" name="from" class="col2" required>
+            <label for="to" class="col1">To:</label>
+            <input type="date" id="to" name="to" class="col2" required>
+            <div id="error" class="error spancol hidden">The "from" date must be earlier than the "to" date</div>
+        </div>
+        <button type="submit">Reserve</button>
+    </form>
+</body>
+
+</html>

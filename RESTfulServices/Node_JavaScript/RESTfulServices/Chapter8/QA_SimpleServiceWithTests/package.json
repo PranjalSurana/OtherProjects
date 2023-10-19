@@ -1,0 +1,23 @@
+{
+  "name": "simpleservice",
+  "version": "1.0.0",
+  "description": "A simple controller for a CRUD API for contacts",
+  "main": "service/contact-rest-controller.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "node src/service/contact-rest-controller.js",
+    "start-nodemon": "nodemon src/service/contact-rest-controller.js"
+  },
+  "author": "Fidelity FSE",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jasmine": "^4.5.0",
+    "nodemon": "^2.0.20"
+  },
+  "nodemonConfig": {
+    "ignore": ["**/spec/**"]
+  }
+}

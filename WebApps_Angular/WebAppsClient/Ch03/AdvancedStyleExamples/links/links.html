@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./links.css" />
+    <!-- Scripting is only required here to make the sandbox features optional -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./links.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Links</h1>
+    <div id="grid-container">
+        <div>Base document</div>
+        <div>Frame 2</div>
+        <div>Frame 3 (sandboxed)</div>
+        <div id="links" class="frame">
+            <a href="target.html" target="_blank">Open in new tab or window</a><br />
+            <a href="target2.html" target="frame2">Open in frame 2</a><br />
+            <a href="target-embed.html" target="frame2e">Open in frame embedded in frame 2</a><br />
+            <a href="target3.html" target="frame3">Open in frame 3</a><br />
+            <a href="target-embed.html" target="frame3e">Open in frame embedded in frame 3</a><br />
+            <a href="target.html" target="_parent">Open in parent</a><br />
+            <a href="target.html" target="_top">Open in top (same as parent)</a>
+        </div>
+        <iframe name="frame2" src="../blank.html" class="frame"></iframe>
+        <iframe name="frame3" src="../blank.html" class="frame" id="frame3" sandbox=""></iframe>
+        <div></div>
+        <div></div>
+        <div>
+            <input type="checkbox" id="same-origin" /><label for="same-origin">Allow same origin</label><br />
+            <input type="checkbox" id="popups" /><label for="popups">Allow popups</label><br />
+            <input type="checkbox" id="top-nav" /><label for="top-nav">Allow top navigation</label><br />
+        </div>
+    </div>
+</body>
+
+</html>

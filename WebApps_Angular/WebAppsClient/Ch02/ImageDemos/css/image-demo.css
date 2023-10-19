@@ -1,0 +1,26 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    width: 471px;
+    height: 216px;
+    position: absolute;
+}
+
+.imgContainer1, .imgContainer2 {
+    width: 471px;
+    height: 216px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.description {
+    width: 100px;
+}

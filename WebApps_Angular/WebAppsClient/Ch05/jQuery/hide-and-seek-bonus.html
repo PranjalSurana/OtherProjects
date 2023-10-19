@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./hide-and-seek-bonus.js"></script>
+    <link rel="stylesheet" href="./hide-and-seek-solution.css">
+    <title>Hide and Seek</title>
+</head>
+
+<body>
+    <input type="checkbox" id="notify">
+    <label for="notify">Pop-up when the animation is complete?</label>
+    <p>
+        <button class="toggle" id="toggle">Toggle</button>
+        <button class="toggle" id="togglenotify">Toggle (with notify)</button>
+    </p>
+    <div>A div with some text</div>
+    <p>
+        <button class="toggle" id="slidetoggle">SlideToggle (default=0.4s)</button>
+        <button class="toggle" id="slidetoggleslow">SlideToggle (slow=0.6s)</button>
+        <button class="toggle" id="slidetogglevslow">SlideToggle (1s)</button>
+    </p>
+    <div>Another div with some text</div>
+    <p>
+        <button class="toggle" id="fadetoggle">FadeToggle (default=0.4s)</button>
+        <button class="toggle" id="fadetoggleslow">FadeToggle (slow=0.6s)</button>
+        <button class="toggle" id="fadetogglevslow">FadeToggle (1s)</button>
+        <button class="show">Show</button>
+    </p>
+    <div>You know where this is going by now!</div>
+    <p>
+        <button class="animate" id="animate">Animate</button>
+        <button class="animate" id="undo">Reset Animation</button>
+        <button class="hide">Hide</button>
+        <button class="show">Show</button>
+        <button class="hide">Hide</button>
+    </p>
+    <div>And one last div</div>
+</body>
+
+</html>

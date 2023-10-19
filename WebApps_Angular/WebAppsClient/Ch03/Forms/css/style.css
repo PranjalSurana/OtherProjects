@@ -1,0 +1,10 @@
+/* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+
+html, textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}

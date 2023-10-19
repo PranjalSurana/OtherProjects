@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <!-- We'll put these in-line here because we want this page to be self-contained -->
+    <script>
+        $(document).ready(function () {
+            let entries = new URLSearchParams(window.location.search).entries();
+            let output = '';
+            for (entry of entries) {
+                output += entry[0] + ': ' + entry[1] + '<br>';
+            }
+            $('#output').html(output)
+        });
+    </script>
+    <style>
+        html {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+    <title>Parameter Output</title>
+</head>
+
+<body>
+    <h1>Parameters</h1>
+    <div id="output"></div>
+</body>
+
+</html>

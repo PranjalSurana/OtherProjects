@@ -1,0 +1,25 @@
+h1 {
+    background-color: bisque;
+}
+
+div {
+    margin: 20px;
+}
+
+#subscription1 {
+    background-color: beige;
+    border-radius: 15px;
+    border: 2 solid blue;
+}
+
+#subscription2 {
+    background-color: lightcyan;
+    border-radius: 15px;
+    border: 2 solid blue;
+}
+
+label {
+    color: blue;
+    background-color: aquamarine;
+    margin: 15px;
+}

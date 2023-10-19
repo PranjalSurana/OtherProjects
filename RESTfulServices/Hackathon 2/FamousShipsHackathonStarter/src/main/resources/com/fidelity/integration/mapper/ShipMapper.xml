@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fidelity.integration.mapper.ShipMapper">
+
+    <resultMap id="ShipMap" type="Ship">
+        <id column="id" property="id"/>
+        <result column="Name" property="name"/>
+        <result column="Nickname" property="nickname"/>
+        <result column="Captain" property="captain"/>
+        <result column="Description" property="description"/>
+        <result column="Type" property="type"/>
+    </resultMap>
+
+    <select id="getAllShips" resultMap="ShipMap">
+        SELECT id, Name, Nickname, Captain, Description, Type
+        from FamousShips
+        order by id
+    </select>
+
+    <select id="getShipById" parameterType="int" resultMap="ShipMap">
+        SELECT id, Name, Nickname, Captain, Description, Type
+        from FamousShips
+        where id = #{id}
+        order by id
+    </select>
+
+    <select id="getCaptainByShipName" parameterType="String" resultType="String">
+        SELECT Captain
+        from FamousShips
+        where Name = #{name}
+        order by Name
+    </select>
+
+</mapper>

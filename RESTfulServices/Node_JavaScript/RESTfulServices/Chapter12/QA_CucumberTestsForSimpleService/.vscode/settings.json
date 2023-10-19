@@ -1,0 +1,9 @@
+{
+    "cucumber.features": [
+        "cypress/e2e/**/*.feature",
+    ],
+    "cucumber.glue": [
+        "cypress/e2e/**/*steps.js",
+        "cypress/e2e/**/*steps.cy.js"
+    ]
+}

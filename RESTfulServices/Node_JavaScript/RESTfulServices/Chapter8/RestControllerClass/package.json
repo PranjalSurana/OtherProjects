@@ -1,0 +1,21 @@
+{
+  "name": "node-product-api",
+  "version": "1.0.0",
+  "description": "CRUD REST API for the Product database in Oracle, built with Node.js",
+  "main": "src/rest-controller/rest-controller.js",
+  "scripts": {
+    "start": "node src/rest-controller/rest-controller.js",
+    "test": "jasmine"
+  },
+  "author": "ROI Instructor Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "oracledb": "^5.5.0"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "jasmine": "^4.5.0"
+  }
+}

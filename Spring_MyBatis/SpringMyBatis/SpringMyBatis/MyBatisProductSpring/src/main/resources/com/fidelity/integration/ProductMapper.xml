@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fidelity.integration.ProductMapper">
+  
+    <resultMap type="Product" id="ProductMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+    </resultMap>
+
+    <resultMap type="Product" id="ProductWithDetailMap">
+        <id     property="productId"           column="PRODUCTID"/>
+        <result property="name"                column="NAME"/>
+        <result property="description"         column="DESCN"/>
+        <result property="categoryId"          column="CATEGORY"/>
+        <result property="detail.productId"    column="PRODUCTID"/>
+        <result property="detail.manufacturer" column="MANUFACTURER"/>
+        <result property="detail.sku"          column="SKU"/>
+        <result property="detail.upc"          column="UPC"/>
+        <result property="detail.minimumAge"   column="MINIMUM_AGE"/>
+     </resultMap>
+
+    <resultMap type="Product" id="ProductWithDetailByExtension" extends="ProductMap">
+        <result property="detail.productId"    column="PRODUCTID"/>
+        <result property="detail.manufacturer" column="MANUFACTURER"/>
+        <result property="detail.sku"          column="SKU"/>
+        <result property="detail.upc"          column="UPC"/>
+        <result property="detail.minimumAge"   column="MINIMUM_AGE"/>
+     </resultMap>
+
+    <resultMap type="Product" id="ProductWithNestedDetailMap">
+        <id     property="productId"    column="PRODUCTID"/>
+        <result property="name"         column="NAME"/>
+        <result property="description"  column="DESCN"/>
+        <result property="categoryId"   column="CATEGORY"/>
+        <association property="detail" resultMap="ProductDetailMap" />
+    </resultMap>
+
+    <resultMap type="Product" id="ProductWithNestedDetailByExtension" extends="ProductMap">
+        <association property="detail" resultMap="ProductDetailMap" />
+    </resultMap>
+
+    <resultMap type="ProductDetail" id="ProductDetailMap">
+        <id     property="productId"    column="PRODUCTID"/>
+        <result property="manufacturer" column="MANUFACTURER"/>
+        <result property="sku"          column="SKU"/>
+        <result property="upc"          column="UPC"/>
+        <result property="minimumAge"   column="MINIMUM_AGE"/>
+    </resultMap>
+
+    <resultMap type="Product" id="ProductWithNestedDetailSelect">
+        <id     property="productId"    column="PRODUCTID"/>
+        <result property="name"         column="NAME"/>
+        <result property="description"  column="DESCN"/>
+        <result property="categoryId"   column="CATEGORY"/>
+        <association property="detail" column="PRODUCTID" select="getProductDetail" />
+    </resultMap>
+
+    <resultMap type="Category" id="CategoryWithNestedProductMap">
+        <id     property="categoryId"   column="ID"/>
+        <result property="name"         column="CAT_NAME"/>
+        <collection property="products" resultMap="ProductMap" />
+    </resultMap>
+
+    <resultMap type="Category" id="CategoryWithNestedProductSelect">
+        <id     property="categoryId"   column="ID"/>
+        <result property="name"         column="CAT_NAME"/>
+        <collection property="products" column="ID" select="getProductListByCategory" />
+    </resultMap>
+
+    <select id="getProducts" resultType="Product">
+        SELECT productid, name, descn as description, category as categoryId
+        FROM   product
+    </select>
+
+    <select id="getProduct" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product
+        WHERE  productid = #{productId}
+    </select>
+
+    <select id="getProductListByCategory" resultType="Product">
+        SELECT productid, name, descn as description, category as categoryId
+        FROM   product 
+        WHERE  category = #{value}
+    </select>
+
+    <insert id="insertProduct" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId})
+    </insert>
+
+    <update id="updateProduct" parameterType="Product">
+        UPDATE product
+        SET    name = #{name}, descn = #{description}, category = #{categoryId}
+        WHERE  productid = #{productId}
+    </update>
+
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM product
+        WHERE productid = #{value}
+    </delete>
+
+<!-- 	Four different ways of doing exactly the same thing. 
+		They differ only in how the ResultMap is constructed -->
+    <select id="getProductsWithDetail" resultMap="ProductWithDetailMap">
+        SELECT p.productid, p.name, p.descn, p.category, d.manufacturer, d.sku, d.upc, d.minimum_age
+        FROM   product p
+        JOIN   product_detail d
+        ON     p.productid = d.productid
+    </select>
+
+    <select id="getProductsWithDetailExtension" resultMap="ProductWithDetailByExtension">
+        SELECT p.productid, p.name, p.descn, p.category, d.manufacturer, d.sku, d.upc, d.minimum_age
+        FROM   product p
+        JOIN   product_detail d
+        ON     p.productid = d.productid
+    </select>
+
+    <select id="getProductsWithNestedDetail" resultMap="ProductWithNestedDetailMap">
+        SELECT p.productid, p.name, p.descn, p.category, d.manufacturer, d.sku, d.upc, d.minimum_age
+        FROM   product p
+        JOIN   product_detail d
+        ON     p.productid = d.productid
+    </select>
+
+    <select id="getProductsWithNestedDetailExtension" resultMap="ProductWithNestedDetailByExtension">
+        SELECT p.productid, p.name, p.descn, p.category, d.manufacturer, d.sku, d.upc, d.minimum_age
+        FROM   product p
+        JOIN   product_detail d
+        ON     p.productid = d.productid
+    </select>
+
+    <select id="getProductsWithNestedSelect" resultMap="ProductWithNestedDetailSelect">
+        SELECT productid, name, descn, category
+        FROM   product
+    </select>
+
+    <select id="getProductDetail" parameterType="int" resultMap="ProductDetailMap">
+        SELECT productid, manufacturer, sku, upc, minimum_age
+        FROM   product_detail
+        WHERE  productid = #{value}
+    </select>
+    
+    <select id="getCategoriesWithNestedProduct" resultMap="CategoryWithNestedProductMap">
+        SELECT p.productid, p.name, p.descn, p.category, c.id, c.name AS cat_name
+        FROM   category c
+        LEFT OUTER JOIN
+               product p
+        ON     p.category = c.id
+    </select>
+
+    <select id="getCategoriesWithNestedSelect" resultMap="CategoryWithNestedProductSelect">
+        SELECT id, name AS cat_name
+        FROM   category
+    </select>
+
+    <!-- product2 table has an IDENTITY column (GENERATED ALWAYS) on HyperSQL.
+         On Oracle, it has a SEQUENCE and a TRIGGER (which only sets if NULL), so we can review different 
+         types of functionality (this mechanism works on Oracle when there is a trigger setting the key) -->
+    <insert id="insertProductWithIdentity" parameterType="Product" 
+    		useGeneratedKeys="true" keyProperty="productId" keyColumn="productid">
+        INSERT INTO product2 (name, descn, category)
+        VALUES (#{name}, #{description}, #{categoryId})
+    </insert>
+
+	<!-- Use this mechanism with older Oracle databases where the sequence is not used in a trigger.
+	     In this example, it will also work on HyperSQL because there is a dummy sequence -->
+	<insert id="insertProductWithSequence" parameterType="Product">
+	    <selectKey keyProperty="productId" resultType="int" order="BEFORE">
+	        SELECT product2_seq.NEXTVAL FROM DUAL
+	    </selectKey>
+        INSERT INTO product2 (productid, name, descn, category)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId})
+	</insert>
+
+    <select id="getProducts2" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product2
+    </select>
+
+	<!-- Example of using enums -->
+    <resultMap type="Product" id="ProductWithTypeIdMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+        <result property="type"        column="PRODUCT_TYPE_ID" 
+            typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </resultMap>
+
+ 	<select id="getProductsWithTypeId" resultMap="ProductWithTypeIdMap">
+        SELECT productid, name, descn, category, product_type_id
+        FROM   product
+        WHERE  product_type_id IS NOT NULL
+	</select>
+
+	<insert id="insertProductWithTypeId" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category, product_type_id)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId}, 
+            #{type, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+	</insert>
+
+    <resultMap type="Product" id="ProductWithTypeNameMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+        <result property="type"        column="PRODUCT_TYPE_NAME"/>
+    </resultMap>
+
+ 	<select id="getProductsWithTypeName" resultMap="ProductWithTypeNameMap">
+        SELECT productid, name, descn, category, product_type_name
+        FROM   product
+        WHERE  product_type_name IS NOT NULL
+	</select>
+	
+	<insert id="insertProductWithTypeName" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category, product_type_name)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId}, #{type})
+	</insert>
+
+	<!-- Multiple parameters -->
+ 	<select id="getProductsByCategoryAndNameMap" parameterType="java.util.Map" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product
+        WHERE  category = #{categoryId}
+        AND    name     LIKE #{name}
+	</select>
+
+ 	<select id="getProductsByCategoryAndNameParam" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product
+        WHERE  category = #{param1}
+        AND    name     LIKE #{param2} || '%'
+	</select>
+	
+	<!-- Oracle style procedure returning a SYS_REFCURSOR as second parameter -->
+<!-- 
+	<select id="getProductsByCategoryProcedure" parameterType="java.util.Map" statementType="CALLABLE"> 
+        { CALL proc_products_by_category( #{categoryId, mode=IN, jdbcType=NUMERIC}, 
+        		#{results, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=ProductMap} ) }
+	</select>
+-->
+    <!-- Oracle style function call returning SYS_REFCURSOR, but any return type must be handled like this -->
+    <!-- Some weird things are that the result and the "= call" MUST be on the same line, call MUST be lower case -->	
+<!-- 
+ 	<select id="getProductsByCategoryFunction" parameterType="int" statementType="CALLABLE"> 
+        { #{results, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=ProductMap} = call func_products_by_category( #{categoryId, mode=IN, jdbcType=NUMERIC}) }
+	</select>
+-->
+	<!-- HyperSQL style procedure returning a CURSOR as a result set  -->
+ 	<select id="getProductsByCategoryProcedure" parameterType="int" statementType="CALLABLE" resultMap="ProductMap"> 
+        { CALL proc_products_by_category( #{categoryId, mode=IN, jdbcType=NUMERIC} ) }
+	</select>
+
+	<!-- HyperSQL style function returning TABLE -->
+ 	<select id="getProductsByCategoryFunction" parameterType="int" statementType="CALLABLE" resultMap="ProductMap"> 
+        { call func_products_by_category( #{categoryId, mode=IN, jdbcType=NUMERIC} ) }
+	</select>
+	
+ 	<update id="deleteProductsByCategoryProcedure" parameterType="int" statementType="CALLABLE" > 
+        { call proc_del_products_by_category( #{categoryId, mode=IN, jdbcType=NUMERIC} ) }
+	</update>
+	
+
+
+</mapper>

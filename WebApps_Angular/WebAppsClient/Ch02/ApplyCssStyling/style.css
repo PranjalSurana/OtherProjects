@@ -1,0 +1,120 @@
+/* 
+ * TODO: Add a rule that displays the page in a sans serif font
+ * TODO: Add a rule that displays every other paragraph in blue
+ */
+
+/*
+2. Change the way the photographs are displayed:
+a. Make their width 300px.
+b. Add a drop-shadow.
+c. Make sure the first one is outside the normal text flow and on the left. The
+second one should be on the right. Make sure there is some spacing between
+the images and the text.
+d. Add a transition so that the images are displayed at their full width (600px)
+when the mouse pointer is over them.
+3. Add a suitable gradient to the page background
+*/
+
+body {
+    font-family: sans-serif;
+    background-image: linear-gradient(to left bottom, #c9def4, #f5ccd4, #b8a4c9);
+    font-size: small;
+}
+
+body p:nth-child(even){
+    color: blue;
+}
+
+header {
+    text-align: center;
+    border: black 2px solid;
+    border-radius: 5px;
+}
+
+nav {
+    text-align: center;
+}
+
+#part1, #part2 {    
+    border: red 2px solid;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+}
+
+section { 
+    border: blue 2px solid;
+    border-radius: 5px;   
+    margin: 5px;
+    padding: 5px; 
+}
+
+#textpart1, #textpart2 {
+    padding: 10px;
+}
+
+#text-hover {
+    visibility: hidden;
+}
+
+a:hover #text-hover {
+    visibility: visible;
+}
+
+#photopart1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.part1figs {
+    flex: 1;
+}
+
+#part1img1, #part1img2, #part1img3 {
+    width: 200px;
+    height: 200px;
+}
+
+#part1img1:hover, #part1img2:hover, #part1img3:hover {
+    width: 300px;
+    height: 300px;
+}
+
+img {
+    filter: drop-shadow(10px 10px 5px #535372);
+    margin: 30px;
+}
+
+#photopart2img1 {
+    padding: 10px;
+}
+
+#part2figs {
+    display: inline-block;
+    text-align: center;
+}
+
+
+#part2figs img {
+    vertical-align: top;
+}
+
+#img2:hover {
+    width: 600px;
+    float:right;
+}
+
+
+#img2 {
+    float: right;
+    width: 300px;
+}
+
+aside {
+    border: green 2px solid;
+    border-radius: 5px;     
+}
+
+footer {
+    text-align: center;
+}

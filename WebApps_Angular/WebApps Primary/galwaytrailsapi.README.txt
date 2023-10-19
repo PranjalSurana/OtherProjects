@@ -1,0 +1,22 @@
+galwaytrailsapi.jar is a standalone Spring Boot jar file. 
+
+Instructions for associates to start the API:
+1. Copy galwaytailsapi.jar to D:\
+2. Open a Windows command prompt
+3. Enter D:\
+4. Enter java -jar galwaytrailsapi.jar
+
+Landing page with instructions for associates:
+	GET http://localhost:8080
+
+Examples:
+	GET http://localhost:8080/trails
+	GET http://localhost:8080/trails?sortBy=length&sortAsc=false&howMany=5
+
+sortBy: 
+	name
+	length
+	time-to-complete
+	driving-time
+	difficulty
+	comments

@@ -1,0 +1,42 @@
+iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+
+hr {
+    width: 50%;
+    margin-inline-start: auto;
+}
+
+html {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#bl {
+    background-color: blue;
+}
+
+#yw {
+    background-color: yellow;
+}
+
+#aw {
+    background-color: antiquewhite;
+}
+
+#rp {
+    background-color: rebeccapurple;
+}
+
+#bl, #rp {
+    color: white;
+}
+
+.firstRed li:first-child {
+    color: red;
+}
+
+.intro {
+    color: #333;
+}

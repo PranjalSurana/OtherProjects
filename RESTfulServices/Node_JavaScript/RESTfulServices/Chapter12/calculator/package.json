@@ -1,0 +1,17 @@
+{
+  "name": "calculator-test",
+  "version": "1.0.0",
+  "description": "Use Gherkin and Cucumber for BDD",
+  "scripts": {
+    "test": "node ./node_modules/cucumber/bin/cucumber-js ./features -r ./step-definitions/"
+  },
+  "keywords": [
+    "cucumber"
+  ],
+  "author": "ROI training",
+  "license": "",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0"
+  }
+}

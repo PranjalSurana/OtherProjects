@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           
+	<bean id="no-way" class="com.fidelity.dependency.Film">
+		<property name="title" value="Lawrence Gump and the Pirate Wall of Quantico" />
+		<property name="cast">
+			<list>
+				<ref bean="chopra" />
+				<ref bean="hanks" />
+				<ref bean="jing" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="no-way-jose" class="com.fidelity.dependency.FilmWithMap">
+		<property name="title" value="Lawrence Gump and the Pirate Wall of Quantico" />
+		<property name="cast">
+			<map>
+				<entry key="Alex Parrish" value-ref="chopra" />
+				<entry key="Forrest Gump" value-ref="hanks" />
+				<entry key="Lin Mae" value-ref="jing" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="chopra" class="com.fidelity.dependency.Actor">
+		<constructor-arg index="0" value="Priyanka" />
+		<constructor-arg index="1" value="Chopra" />
+	</bean>
+
+	<bean id="depp" class="com.fidelity.dependency.Actor">
+		<constructor-arg index="0" value="Johnny" />
+		<constructor-arg index="1" value="Depp" />
+	</bean>
+
+	<bean id="hanks" class="com.fidelity.dependency.Actor">
+		<constructor-arg index="0" value="Tom" />
+		<constructor-arg index="1" value="Hanks" />
+	</bean>
+
+	<bean id="otoole" class="com.fidelity.dependency.Actor">
+		<constructor-arg index="0" value="Peter" />
+		<constructor-arg index="1" value="O'Toole" />
+	</bean>
+
+	<bean id="jing" class="com.fidelity.dependency.Actor">
+		<constructor-arg index="0" value="Jing" />
+		<constructor-arg index="1" value="Tian" />
+	</bean>
+
+</beans>

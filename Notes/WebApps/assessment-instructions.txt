@@ -1,0 +1,37 @@
+ASSESSMENT INSTRUCTIONS
+
+START THE BACKEND API
+
+1. Copy R:\Assessments\US\<your-classroom>\StarterFiles\galwaytrailsapi.com to D:\
+2. Open a command prompt
+3. cd \
+4. java -jar galwaytrailsapi.com
+5. Browse to localhost:8080
+
+SET UP A NEW ANGULAR PROJECT
+
+1. Copy R:\Assessments\US\<your-classroom>\StarterFiles\DynamicWebAssessmentStarter.zip to D:
+2. R-click D:\DynamicWebAssessmentStarter.zip > 7-Zip > Extract here
+3. Open VS code
+4. File > Open folder: D:\starter-app
+5. npm install
+6. ng serve
+7. Browse to http://localhost:4200
+
+REVIEW THE ASSESSMENT REQUIREMENTS
+
+Browse to https://leap.roifmr.com
+	Assessments > Developing Client-Side Dynamic Web Applications
+Fidelity Issued ID: Annnnnnnn
+Password: 
+Click Register
+
+WHEN YOU'RE FINISHED, COPY YOUR PROJECT TO THE R: DRIVE
+
+1. In the browser window, click "I have completed this task"
+2. Exit VS Code
+3. Delete folders .angular and node_modules from D:\starter-app
+4. R-click D:\starter-app > 7-Zip > Add to starter-app.zip
+5. Rename starter-app.zip to Lastname_Firstname.zip
+6. Copy zip file to R:\Assessments\US\<your-classroom>
+7. In the browser window, click "I have submitted my assessment"

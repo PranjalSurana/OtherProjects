@@ -1,0 +1,16 @@
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+select {
+    font-size: 1em;
+}
+
+form, #details {
+    margin: 1em;
+}

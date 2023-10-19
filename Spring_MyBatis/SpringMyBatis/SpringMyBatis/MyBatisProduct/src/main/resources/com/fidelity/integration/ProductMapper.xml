@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fidelity.integration.ProductMapper">
+  
+    <select id="getProducts" resultType="Product">
+        SELECT productid, name, descn as description, category as categoryId
+        FROM   product
+    </select>
+
+    <select id="getProduct" resultType="Product">
+        SELECT productid, name, descn as description, category as categoryId
+        FROM   product
+        WHERE  productid = #{productId}
+    </select>
+
+    <select id="getProductListByCategory" resultType="Product">
+        SELECT productid, name, descn as description, category as categoryId
+        FROM   product 
+        WHERE  category = #{value}
+    </select>
+
+    <insert id="insertProduct" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId})
+    </insert>
+</mapper>

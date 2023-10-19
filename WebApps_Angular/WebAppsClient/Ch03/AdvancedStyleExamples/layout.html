@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Normal Flow Layout</h1>
+    <p>Try positioning the mouse over elements on the page to see the border highlighted.</p>
+    <section>
+        <h2>Galway Bay</h2>
+        <div>
+            If you ever go across the sea to Ireland,<br />
+            Then maybe at the closing of the day,<br />
+            You can sit and watch the moon rise over <a href="https://www.google.com/maps/place/The+Claddagh,+Galway,+Ireland/">Claddagh</a>,<br />
+            And watch the sun go down on <a href="https://en.wikipedia.org/wiki/Galway_Bay">Galway Bay</a></a>.<br />
+            <br />
+            Just to hear again the ripple of the trout stream,<br />
+            The women in the meadow making hay,<br />
+            Just to sit beside the turf fire in a cabin,<br />
+            And watch the barefoot <span class="tooltip">gossoons<span class="tooltiptext">noun Irish English: a boy;
+                    lad (from Irish garsún)</span></span> as they play.<br />
+            <br />
+            For the breezes blowing o'er the seas from Ireland,<br />
+            Are perfumed by the heather as they blow,<br />
+            And the women in the uplands digging <span class="tooltip">praties<span class="tooltiptext">noun Scottish,
+                    Northern England, Irish and Eastern Canada informal: a potato</span></span>,<br />
+            Speak a language that the strangers do not know.<br />
+            <br />
+            Yet the strangers came and tried to teach us their ways,<br />
+            And they scorned us just for being what we are,<br />
+            But they might as well go chasing after moonbeams,<br />
+            Or light a penny candle from a star.<br />
+            <br />
+            And if there is to be a life hereafter,<br />
+            And somehow I am sure there's going to be,<br />
+            I will ask my God to let me make my Heaven,<br />
+            In that dear land across the Irish sea.<br />
+            <div class="attribution">Arthur Colahan, 1947</div>
+        </div>
+    </section>
+    <section>
+        <h2>Borders</h2>
+        <div class="adjacentToBorderDemo aboveBorderDemo">content above</div>
+        <!-- To line up divs, it is important there is no whitespace between them on this line, note that VSC will ruin this arrangement, hence this comment -->
+        <div class="adjacentToBorderDemo borderDemo">content with 1px border, no padding, no margin</div><div 
+            id="borderDemo" class="borderDemo">content with 20px border, 10px padding, 15px margin</div><div 
+            class="adjacentToBorderDemo borderDemo">content with 1px border, no padding, no margin</div>
+        <!-- end of line -->
+        <div class="adjacentToBorderDemo belowBorderDemo">content below</div>
+    </section>
+</body>
+
+</html>

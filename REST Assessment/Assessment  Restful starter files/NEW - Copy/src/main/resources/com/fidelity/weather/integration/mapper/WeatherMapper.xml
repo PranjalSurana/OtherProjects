@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fidelity.weather.integration.mapper.WeatherMapper">
+
+    <resultMap id="CityMap" type="City">
+        <id column="ID" property="cityId"/>
+        <result column="CITY" property="city"/>
+        <result column="COUNTRY_REGION_ID" property="countryRegionId"/>
+        <result column="LAT" property="latitude"/>
+        <result column="LON" property="longitude"/>
+    </resultMap>
+
+    <resultMap id="CountryRegionMap" type="CountryRegion">
+        <id column="ID" property="countryRegionId"/>
+        <result column="COUNTRY_CODE" property="countryCode"/>
+        <result column="REGION_CODE" property="regionCode"/>
+    </resultMap>
+
+    <resultMap id="LatitudeAndLongitudeMap" type="LatitudeAndLongitude">
+        <result column="LAT" property="latitude"/>
+        <result column="LON" property="longitude"/>
+    </resultMap>
+
+    <select id="getLatitudeAndLongitude" resultMap="LatitudeAndLongitudeMap">
+        SELECT c.lat, c.lon
+        FROM CITY c
+        JOIN COUNTRY_REGION r
+        ON c.COUNTRY_REGION_ID = r.ID
+        WHERE c.city = #{city}
+        AND r.COUNTRY_CODE = #{country}
+        AND r.REGION_CODE = #{region}
+    </select>
+
+</mapper>

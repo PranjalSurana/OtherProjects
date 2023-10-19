@@ -1,0 +1,87 @@
+button:hover {
+    background: #437c43;
+}
+
+input:checked+label {
+    color: #437c43;
+    text-decoration: underline;
+}
+
+input[type="text"] {
+    color: white;
+}
+
+input:valid {
+    background-color: #437c43;
+}
+
+input:invalid {
+    background-color: #7c4343;
+}
+
+a:link {
+    font-family: cursive;
+}
+
+a:visited {
+    color: #437c43;
+}
+
+a:hover {
+    color: #7c4343;
+}
+
+a:active {
+    text-decoration: underline overline;
+}
+
+a:hover::after {
+    content: " hover";
+}
+
+a:active::after {
+    content: " active";
+}
+
+li a:link {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+    border-left: 1px solid blue;
+    padding-left: 1em;
+}
+
+div {
+    padding-bottom: 2em;
+}
+
+section:last-child {
+    border-bottom: 1px solid blue;
+}
+
+.text {
+    color: #333;
+}
+
+.drop-cap::first-letter {
+    font-size: 250%;
+    font-weight: bold;
+    float: left;
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+    margin-top: -0.15em;
+    margin-bottom: -0.5em;
+    color: darkblue;
+}
+
+.symbol::before {
+    content: '\2021';
+}
+
+.selection::selection {
+    color: yellow;
+    background-color: rebeccapurple;
+}

@@ -1,0 +1,54 @@
+
+a:visited {
+    color: #437c43;
+}
+
+a:hover {
+    color: #7c4343;
+}
+
+a:active {
+    text-decoration: underline overline;
+}
+
+a:hover::after {
+    content: " hover";
+}
+
+a:active::after {
+    content: " active";
+}
+
+a {
+    font-family: cursive;
+}
+
+li a:link {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    padding-bottom: 2em;
+}
+
+section:last-child {
+    border-bottom: 1px solid blue;
+}
+
+div span {
+    color: rebeccapurple;
+    font-weight: bold;
+}
+
+div>span {
+    color: #437c43;
+    font-style: italic;
+}
+
+h2+p {
+    text-decoration: line-through;
+}
+
+.text {
+    color: #333;
+}

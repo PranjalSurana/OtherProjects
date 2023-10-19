@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/svg-demo.css">
+    <title>SVG Demo</title>
+</head>
+
+<body>
+    <h2>Start-Stop icons from RVC at 10x Size</h2>
+    <div class="grid-container">
+        <svg id="start" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit=""
+            preserveAspectRatio="xMidYMid meet" focusable="false" class="roi-icon roi-enabled">
+            <defs>
+                <pattern id="smallGrid" width="1" height="1" patternUnits="userSpaceOnUse">
+                    <path d="M 1 0 L 0 0 0 1" fill="none" stroke="gray" stroke-width="0.25" />
+                </pattern>
+                <circle cx="0" cy="0" r="0.5" fill="#FF0000" id="highlight-circle" />
+            </defs>
+
+            <rect width="100%" height="100%" fill="url(#smallGrid)" />
+
+            <!-- This is the actual shape, the only part of this SVG that would normally appear (all the rest is to illustrate how it works) -->
+            <!-- The stroke details have been modified to allow a mouseover -->
+            <path class="roi-path" d="M8 5v14l11-7z" stroke-width="0.5" stroke="#000" stroke-opacity="0.0001"
+                id="icon-path" />
+
+            <use xlink:href="#highlight-circle">
+                <animate attributeName="opacity" values="0;0;1;1;0" dur="25s" keyTimes="0;0.1;0.15;0.92;1"
+                    calcMode="linear" repeatCount="indefinite" />
+                <animateMotion dur="25s" repeatCount="indefinite"
+                    keyPoints="0;0;0.349329204;0.349329204;0.674664602;0.674664602;1;1"
+                    keyTimes="0;0.2;0.42;0.44;0.66;0.68;0.92;1" calcMode="linear">
+                    <mpath xlink:href="#icon-path" />
+                </animateMotion>
+            </use>
+
+            <g>
+                <rect x="3" y="20" rx="0.5" width="17.5" height="3" fill="#cccccc" stroke="#666" stroke-width="0.25" />
+                <text x="3.75" y="22.25" fill="#666" style="font: 2px sans-serif">d=</text>
+                <text x="6" y="22.25" style="font: 2px sans-serif" id="text1">M8 5</text>
+                <text x="10.5" y="22.25" style="font: 2px sans-serif" id="text2">v14</text>
+                <text x="14" y="22.25" style="font: 2px sans-serif" id="text3">l11-7</text>
+                <text x="18.5" y="22.25" style="font: 2px sans-serif" id="text4">z</text>
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.1;0.15;0.2;0.22;1" repeatCount="indefinite" xlink:href="#text1" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.19;0.2;0.42;0.43;1" repeatCount="indefinite" xlink:href="#text2" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.43;0.44;0.66;0.67;1" repeatCount="indefinite" xlink:href="#text3" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.67;0.68;0.92;0.93;1" repeatCount="indefinite" xlink:href="#text4" />
+            </g>
+        </svg>
+
+        <svg id="stop" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet"
+            focusable="false" class="roi-icon roi-enabled">
+            <defs>
+                <pattern id="smallGrid" width="1" height="1" patternUnits="userSpaceOnUse">
+                    <path d="M 1 0 L 0 0 0 1" fill="none" stroke="gray" stroke-width="0.25" />
+                </pattern>
+            </defs>
+
+            <rect width="100%" height="100%" fill="url(#smallGrid)" />
+
+            <!-- This is the actual shape, the only part of this SVG that would normally appear (all the rest is to illustrate how it works) -->
+            <!-- The stroke details have been modified to allow a mouseover -->
+            <path class="roi-path" d="M6 6h12v12H6z" stroke-width="0.5" stroke="#000" stroke-opacity="0.0001"
+                id="icon-pathb" />
+
+            <use xlink:href="#highlight-circle">
+                <animate attributeName="opacity" values="0;0;1;1;0" dur="25s" keyTimes="0;0.1;0.15;0.92;1"
+                    calcMode="linear" repeatCount="indefinite" />
+                <animateMotion dur="25s" repeatCount="indefinite" keyPoints="0;0;0.25;0.25;0.5;0.5;0.75;0.75;1;1"
+                    keyTimes="0;0.2;0.36;0.38;0.54;0.56;0.72;0.74;0.92;1" calcMode="linear">
+                    <mpath xlink:href="#icon-pathb" />
+                </animateMotion>
+            </use>
+
+            <g>
+                <rect x="2.5" y="20" rx="0.5" width="18.75" height="3" fill="#cccccc" stroke="#666"
+                    stroke-width="0.25" />
+                <text x="3.25" y="22.25" fill="#666" style="font: 2px sans-serif">d=</text>
+                <text x="5.5" y="22.25" style="font: 2px sans-serif" id="text1b">M6 6</text>
+                <text x="10" y="22.25" style="font: 2px sans-serif" id="text2b">h12</text>
+                <text x="13.5" y="22.25" style="font: 2px sans-serif" id="text3b">v12</text>
+                <text x="16.75" y="22.25" style="font: 2px sans-serif" id="text4b">H6</text>
+                <text x="19.5" y="22.25" style="font: 2px sans-serif" id="text5b">z</text>
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.1;0.15;0.2;0.22;1" repeatCount="indefinite" xlink:href="#text1b" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.19;0.2;0.36;0.37;1" repeatCount="indefinite" xlink:href="#text2b" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.37;0.38;0.54;0.55;1" repeatCount="indefinite" xlink:href="#text3b" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.55;0.56;0.72;0.73;1" repeatCount="indefinite" xlink:href="#text4b" />
+                <animate attributeName="fill" values="#666;#666;red;red;#666;#666" dur="25s"
+                    keyTimes="0;0.73;0.74;0.92;0.93;1" repeatCount="indefinite" xlink:href="#text5b" />
+            </g>
+        </svg>
+
+        <pre>
+&lt;svg id="start" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" 
+    fit="" preserveAspectRatio="xMidYMid meet"
+    focusable="false" class="roi-icon roi-enabled"&gt;
+    &lt;path class="roi-path" d="M8 5v14l11-7z" /&gt;
+&lt;/svg&gt;
+    </pre>
+
+        <pre>
+&lt;svg id="stop" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" 
+    fit="" preserveAspectRatio="xMidYMid meet"
+    focusable="false" class="roi-icon roi-enabled"&gt;
+    &lt;path class="roi-path" d="M6 6h12v12H6z" /&gt;
+&lt;/svg&gt;
+    </pre>
+
+    </div>
+
+</body>
+
+</html>

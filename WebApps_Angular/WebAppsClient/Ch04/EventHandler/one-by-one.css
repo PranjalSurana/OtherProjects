@@ -1,0 +1,14 @@
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.highlight {
+    font-family: Verdana, sans-serif;
+    background-color: yellow;
+    color: green;
+}
+
+.hidden {
+    display: none;
+}

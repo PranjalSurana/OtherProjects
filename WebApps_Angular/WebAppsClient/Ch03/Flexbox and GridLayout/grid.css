@@ -1,0 +1,70 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div {
+    padding: 10px;
+}
+
+/*
+ * This is the grid container.
+ *
+ * As with flex, the container defines the overall relationships.
+ *
+ * In this case, it defines a series of 3 columns of equal size (1fr represents an 
+ * equal fraction of the remaining space). To define columns of unequal size we could 
+ * have written, say, grid-template-columns: 1fr 2fr 1fr, which would have created 3 
+ * columns where the center column is twice as wide as the two on either side. We can 
+ * also use absolute sizing (using px) or leave it auto.
+ *
+ * grid-auto-rows targets rows that were not created explicitly using grid-template-rows,
+ * which in this case, is all of them. We can use auto to size by content.
+ *
+ * grid-gap is shorthand for grid-row-gap and grid-column-gap.
+ */
+#container {
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100px;
+    grid-gap: 10px 10px;
+    border: 2px solid cornflowerblue;
+}
+
+/*
+ * This item is defined as occupying an area rather than a row, column or cell. An area
+ * spans rows and/or columns. In this case, it is defined as starting in row 1, column 1
+ * and ending in row 2, column 2. How?
+ *
+ * grid-area is a shorthand for grid-row-start / grid-column-start / grid-row-end / grid-column-end,
+ * where each of those values specifies, not a row or column, but a grid line. Thus, row 1 
+ * extends from grid line 1 to grid line 2 and row 2 from grid line 2 to grid line 3.
+ *
+ * There are many different ways of specifying areas, including named areas and spans.
+ */
+#a {
+    grid-area: 1 / 1 / 3 / 3;
+}
+
+/*
+ * This item also occupies an area, but it is specified differently. grid-row is a shorthand 
+ * for grid-row-start / grid-row-end and grid-column is similar. Again, these are not rows or
+ * columns, but grid lines.
+ */
+#d {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2; 
+}
+
+/*
+ * Note that we don't specify a position for any of the other items. They will be positioned
+ * in the grid in the order they are encountered, making way for any specifically positioned
+ * items, if necessary.
+ */
+.item {
+    background-color: seagreen;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+}

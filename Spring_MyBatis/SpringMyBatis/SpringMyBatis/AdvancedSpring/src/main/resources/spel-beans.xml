@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           
+	<bean id="rand1" class="com.fidelity.advanced.RandomSimulator">
+<!--
+ 		<property name="seed" value="#{ T(java.lang.Math).random() * 100.0 }" />
+-->
+		<property name="seed" value="#{ new java.util.Random().nextDouble() * 100.0 }" />
+	</bean>
+
+	<bean id="rand2" class="com.fidelity.advanced.RandomSimulator">
+		<property name="seed" value="#{ rand1.seed }" />
+	</bean>
+
+	<bean id="props" class="com.fidelity.advanced.SystemProperties">
+		<property name="country" value="#{ systemProperties['user.country'] }" />
+		<property name="winDir" value="#{ environment['SystemRoot'] }" />
+	</bean>
+
+</beans>

@@ -1,0 +1,17 @@
+Copy RESTfulAssessmentStarter and RESTAssessmentWeatherApi.jar 
+to R:\Assessments\<country>\<classroom>\StarterFiles
+
+Give the following instructions to your associates during the assessment setup:
+
+Copy R:\Assessments\<country>\<classroom>\StarterFiles\RESTAssessmentWeatherApi.jar to D:
+Open a command prompt and run these commands:
+	cd \
+	java -jar RESTAssessmentWeatherApi.jar
+Browse to http://localhost:8088
+	All the cities in the table are in the database.
+	Click the sample request link to see the forecast for Honolulu.
+
+Copy R:\Assessments\<country>\<classroom>\StarterFiles\RESTAssessmentStarter.zip to D:
+Import the starter into STS/Eclipse as an archive.
+Open SQL Developer and execute the schema.sql and data.sql in src/main/resources
+

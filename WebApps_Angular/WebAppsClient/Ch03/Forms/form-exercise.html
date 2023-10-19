@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Form with Validation</title>
+</head>
+
+<body>
+    <h1>Customer Support Form</h1>
+    <form action="results.html">
+        <fieldset>
+            <legend>Customer Details</legend>
+            <div>
+                <label for="name" class="col1">Name:</label>
+                <!-- TODO: Make userName a mandatory field with a minimum length of 3 characters -->
+                <input type="text" id="name" name="userName">
+            </div>
+            <div>
+                <label for="email" class="col1">E-mail:</label>
+                <!-- TODO: Make userMail a mandatory field -->
+                <input type="email" id="mail" name="userMail">
+            </div>
+            <div>
+                <label for="phone" class="col1">Phone:</label>
+                <!-- TODO: Make userPhone a mandatory field with a North American pattern and a placeholder
+                     TODO: Customise the error message -->
+                <input type="phone" id="phone" name="userPhone">
+            </div>
+        </fieldset>
+        <!-- TODO: Add a section to the form to capture Issue Details -->
+        <!-- TODO: There should be an optional error code, which is numeric -->
+        <!-- TODO: There should be a mandatory type, which is a drop-down list -->
+        <!-- TODO: The drop-down should have two groups: Login and Transactions, create appropriate values in each group -->
+        <!-- TODO: Give each item in the drop-down list a suitable value -->
+        <!-- TODO: There should be an initial entry that does not have any value, it will not be valid to select this -->
+        <!-- TODO: There should be a multi-line Message field that is optional -->
+
+        <button type="submit">Send your message</button>
+    </form>
+</body>
+
+</html>

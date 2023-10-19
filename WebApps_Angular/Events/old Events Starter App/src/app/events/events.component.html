@@ -1,0 +1,26 @@
+<div>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>Controls <button>Add Event</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of eventslist">
+            <td>{{e.events.title}}</td>
+            <td>{{e.events.description}}</td>
+            <td>{{e.events.location}}</td>
+            <td>{{e.events.eventDate}}</td>>
+            <td><button (click)="incrementLikes(e.events.id)"> {{e.events.likes}} </button></td>
+            <td><button (click)="incrementDislikes(e.events.id)"> {{e.events.dislikes}} </button></td>            
+            <td><button (click)="editEvents(e.events.id)">Edit</button><button (click)="deleteEvents(e.events.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>

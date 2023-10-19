@@ -1,0 +1,29 @@
+
+#flex-container {
+    display: flex;
+}
+
+.frame {
+    height: 11em;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px 0px 1px 1px;
+}
+
+.framex {
+    height: 3em;
+    border: 1px solid darkgray;
+}
+
+#frame3 {
+    border-right: 1px solid darkgray;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+a {
+    line-height: 1.5;
+}

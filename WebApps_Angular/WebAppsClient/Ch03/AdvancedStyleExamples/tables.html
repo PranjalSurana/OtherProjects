@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/tables.css" />
+    <title>Tables</title>
+</head>
+
+<body>
+    <h1>Tables</h1>
+
+    <h3>A simple table (hover for outlines)</h3>
+    <table class="outline-only">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <tr>
+            <th>Country</th>
+            <th>Old capital</th>
+            <th>New capital</th>
+        </tr>
+        <tr>
+            <td>Bermuda</td>
+            <td>St George</td>
+            <td>Hamilton</td>
+        </tr>
+        <tr>
+            <td>Brazil</td>
+            <td>Rio de Janeiro, RJ</td>
+            <td>Bras&iacute;lia, DF</td>
+        </tr>
+        <tr>
+            <td>Honduras</td>
+            <td>Comayagua</td>
+            <td>Tegucigalpa</td>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>New York, NY</td>
+            <td>Washington, DC</td>
+        </tr>
+    </table>
+
+    <h3>A table with simple styling</h3>
+    <table class="simple">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <tr>
+            <th>Country</th>
+            <th>Old capital</th>
+            <th>New capital</th>
+        </tr>
+        <tr>
+            <td>Bermuda</td>
+            <td>St George</td>
+            <td>Hamilton</td>
+        </tr>
+        <tr>
+            <td>Brazil</td>
+            <td>Rio de Janeiro, RJ</td>
+            <td>Bras&iacute;lia, DF</td>
+        </tr>
+        <tr>
+            <td>Honduras</td>
+            <td>Comayagua</td>
+            <td>Tegucigalpa</td>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>New York, NY</td>
+            <td>Washington, DC</td>
+        </tr>
+    </table>
+
+    <h3>A table with simple styling and spans</h3>
+    <table class="simple">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <tr>
+            <th rowspan="2">Country</th>
+            <th colspan="2">Capitals</th>
+        </tr>
+        <tr>
+            <th>Old capital</th>
+            <th>New capital</th>
+        </tr>
+        <tr>
+            <td>Bermuda</td>
+            <td>St George</td>
+            <td>Hamilton</td>
+        </tr>
+        <tr>
+            <td>Brazil</td>
+            <td>Rio de Janeiro, RJ</td>
+            <td>Bras&iacute;lia, DF</td>
+        </tr>
+        <tr>
+            <td>Honduras</td>
+            <td>Comayagua</td>
+            <td>Tegucigalpa</td>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>New York, NY</td>
+            <td>Washington, DC</td>
+        </tr>
+    </table>
+
+    <h3>A table with more interesting styling</h3>
+    <table class="simple interesting yellow-headers">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">Country</th>
+                <th colspan="2">Capitals</th>
+            </tr>
+            <tr>
+                <th class="old-capital">Old capital</th>
+                <th class="new-capital">New capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bermuda</td>
+                <td>St George</td>
+                <td>Hamilton</td>
+            </tr>
+            <tr>
+                <td>Brazil</td>
+                <td>Rio de Janeiro, RJ</td>
+                <td>Bras&iacute;lia, DF</td>
+            </tr>
+            <tr>
+                <td>Honduras</td>
+                <td>Comayagua</td>
+                <td>Tegucigalpa</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td>New York, NY</td>
+                <td>Washington, DC</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>A table with intersection styling</h3>
+    <table class="simple intersection yellow-headers">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">Country</th>
+                <th colspan="2">Capitals</th>
+            </tr>
+            <tr>
+                <th class="old-capital">Old capital</th>
+                <th class="new-capital">New capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bermuda</td>
+                <td>St George</td>
+                <td>Hamilton</td>
+            </tr>
+            <tr>
+                <td>Brazil</td>
+                <td>Rio de Janeiro, RJ</td>
+                <td>Bras&iacute;lia, DF</td>
+            </tr>
+            <tr>
+                <td>Honduras</td>
+                <td>Comayagua</td>
+                <td>Tegucigalpa</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td>New York, NY</td>
+                <td>Washington, DC</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h3>A table with row and column headers</h3>
+    <!--
+        This table shows how row headers work. The scope attribute is not required,
+        but may be useful for accessibility. In the case of a table like this, it
+        may not make any sense to have a distinct thead element.
+    -->
+    <table class="simple interesting yellow-col-headers">
+        <caption>Countries of the Americas whose capital city has changed</caption>
+        <thead>
+            <tr>
+                <th scope="col" rowspan="2">Country</th>
+                <th scope="col" colspan="2">Capitals</th>
+            </tr>
+            <tr>
+                <th scope="col" class="old-capital" abbr="old">Old capital</th>
+                <th scope="col" class="new-capital" abbr="new">New capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Bermuda</th>
+                <td>St George</td>
+                <td>Hamilton</td>
+            </tr>
+            <tr>
+                <th scope="row">Brazil</th>
+                <td>Rio de Janeiro, RJ</td>
+                <td>Bras&iacute;lia, DF</td>
+            </tr>
+            <tr>
+                <th scope="row">Honduras</th>
+                <td>Comayagua</td>
+                <td>Tegucigalpa</td>
+            </tr>
+            <tr>
+                <th scope="row">USA</th>
+                <td>New York, NY</td>
+                <td>Washington, DC</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

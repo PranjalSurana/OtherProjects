@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/without-grid.css">
+    <title>Simple Form</title>
+</head>
+
+<body>
+    <!-- This is a subset of the grid version, just to illustrate how hard it
+         can be to align items -->
+    <form action="/my-handling-form-page" method="post">
+        <div>
+            <label>Name:
+                <input type="text" id="name" name="userName">
+            </label>
+        </div>
+        <div>
+            <label>E-mail:
+                <input type="email" id="mail" name="userMail">
+            </label>
+        </div>
+        <div>
+            <label>Message:
+                <textarea id="msg" name="userMessage"></textarea>
+            </label>
+        </div>
+        <div>
+            <span id="checkbox-container"><input type="checkbox" id="optin" name="optIn">&nbsp;</span><span><label for="optin">Please
+                    contact me with special offers</label></span>
+        </div>
+        <div class="button">
+            <button type="submit">Send your message</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- The namespace defines the location of the Java interface. -->
+<!-- The operation names here must match the method names in the interface. -->
+<mapper namespace="com.fidelity.weather.integration.mapper.WeatherMapper">
+
+    <!-- Widget Operations -->
+
+    <resultMap id="CityMap" type="City">
+        <id column="ID" property="cityId"/>
+        <result column="CITY" property="city"/>
+        <result column="COUNTRY_REGION_ID" property="countryRegionId"/>
+        <result column="LAT" property="latitude"/>
+        <result column="LON" property="longitude"/>
+    </resultMap>
+
+    <resultMap id="CountryRegionMap" type="CountryRegion">
+        <id column="ID" property="countryRegionId"/>
+        <result column="COUNTRY_CODE" property="countryCode"/>
+        <result column="REGION_CODE" property="regionCode"/>
+    </resultMap>
+
+    <resultMap id="LatitudeAndLongitudeMap" type="City">
+        <result column="LAT" property="latitude"/>
+        <result column="LON" property="longitude"/>
+    </resultMap>
+
+    <select id="getLatitudeAndLongitude" resultMap="LatitudeAndLongitudeMap">
+        SELECT LAT, LON, CITY
+        FROM CITY
+        WHERE CITY = #{CITY};
+    </select>
+
+</mapper>

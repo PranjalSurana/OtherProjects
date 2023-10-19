@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Breaks</h1>
+    <p>
+        We have already seen the p element, used to create a paragraph, but there are other types of breaks available
+        in HTML.
+    </p>
+    <p>
+        You can jump ahead to <a href="#br">Line Breaks</a>, <a href="#pre">Pre-formatted Text</a>, <a href="#hr">Horizontal
+            Rule</a> or <a href="#nbsp">Non-breaking space</a>
+    </p>
+
+    <hr>
+    <h2 id="br">Line Breaks</h2>
+    <p>
+        Explicit line breaks <br>can be used to break the line in a particular place.<br>Avoid these unless they are
+        really needed.
+    </p>
+    <p>They could be used to lay out poetry:</p>
+    <h3>A Poem Never Says Anything</h3>
+    <p>A poem never says anything.<br>
+        It just opens a door, quietly.<br>
+        <br>
+        Sleepless and bent<br>
+        just like my aged father<br>
+        waiting for me in a lonely winter night.<br>
+        <br></p>
+    <p><em>Uttaran Chaudhuri</em></p>
+    <hr>
+    <h2 id="pre">Pre-formatted Text</h2>
+    <p>
+        That can also be done using the pre (pre-formatted) element, which is also often used to lay out code snippets.
+        Unlike every other element, the pre element also respects whitespace.
+    </p>
+    <h3>The Lake Isle of Innisfree</h3>
+    <pre>
+        I will arise and go now, and go to Innisfree,
+        And a small cabin build there, of clay and wattles made;
+        Nine bean-rows will I have there, a hive for the honey-bee,
+        And live alone in the bee-loud glade.
+
+        And I shall have some peace there, for peace comes dropping slow,
+        Dropping from the veils of the morning to where the cricket sings;
+        There midnight’s all a glimmer, and noon a purple glow,
+        And evening full of the linnet’s wings.
+
+        I will arise and go now, for always night and day
+        I hear lake water lapping with low sounds by the shore;
+        While I stand on the roadway, or on the pavements grey,
+        I hear it in the deep heart’s core.
+    </pre>
+    <p><em>W B Yeats</em></p>
+    <hr>
+    <h2 id="hr">Horizontal Rule</h2>
+    <p>
+        Horizontal lines can be added as section breaks using the hr element. While these may seem decorative, they are
+        generally interpreted as a break of content greater than a paragraph and less than a section (see later).
+        Expect screen readers to treat them that way. There are other ways to introduce a decorative line.
+    </p>
+    <h3>The Road Not Taken</h3>
+    <pre>
+        Two roads diverged in a yellow wood,
+        And sorry I could not travel both
+        And be one traveler, long I stood
+        And looked down one as far as I could
+        To where it bent in the undergrowth;
+            
+        Then took the other, as just as fair,
+        And having perhaps the better claim,
+        Because it was grassy and wanted wear;
+        Though as for that the passing there
+        Had worn them really about the same,
+            
+        And both that morning equally lay
+        In leaves no step had trodden black.
+        Oh, I kept the first for another day!
+        Yet knowing how way leads on to way,
+        I doubted if I should ever come back.
+            
+        I shall be telling this with a sigh
+        Somewhere ages and ages hence:
+        Two roads diverged in a wood, and I-
+        I took the one less traveled by,
+        And that has made all the difference.
+    </pre>
+    <p><em>Robert Frost</em></p>
+    <hr>
+    <h2 id="nbsp">Non-breaking Space</h2>
+    <p>
+        Since HTML does not respect whitespace (two or more consecutive whitespace characters are treated as a single
+        space), we sometimes need to control how whitespace is represented. If we want to prevent a break from
+        appearing in an inopportune place, we can use the non-breaking space.
+    </p>
+    <p>Try re-sizing the browser and see whether the company name is ever split over two lines.</p>
+    <p>
+        Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc
+        Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc
+        Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc
+        Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc Fidelity&nbsp;Investments&nbsp;Inc
+    </p>
+</body>
+
+</html>

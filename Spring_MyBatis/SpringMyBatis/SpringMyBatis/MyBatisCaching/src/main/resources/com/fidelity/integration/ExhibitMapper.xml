@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fidelity.integration.ExhibitMapper">
+<!--  When the cache entry is commented out, MyBatis will do no caching
+      When the cache entry is active, the flushInterval controls how long 
+      entries will be retained in the cache before being flushed and replaced.
+-->
+
+<!-- 
+	<cache readOnly="true" flushInterval="10000" size="10" eviction="FIFO" />
+-->
+
+	<select id="getAllExhibits" resultType="Exhibit">
+		SELECT name, permanent, cost
+		FROM exhibits
+	</select>
+
+</mapper>

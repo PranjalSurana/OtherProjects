@@ -1,0 +1,122 @@
+
+/*
+ * Set the basic table layout parameters so they are readily apparent
+ *
+ * Default padding from the browser will usually be 1px.
+ * 
+ * border-spacing affects the space between borders when the border-collapse has the value
+ * "separate" (which is the default).
+ */
+.simple, .simple th, .simple td {
+    border: 1px solid black;
+    border-spacing: 2px;
+    padding: 2px;
+}
+
+/*
+ * Show the outline when hovered.
+ * 
+ * Need multiple rules to cover these situations:
+ * - when hover over table, outline table
+ * - when hover over table, outline th
+ * - when hover over table, outline td
+ * - try this: could also include the caption by using .outline-only:hover caption
+ */
+.outline-only:hover, .outline-only:hover th, .outline-only:hover td {
+    outline: 1px dotted lightblue;
+}
+
+/*
+ * Simple table with styling will be half the page width and centred
+ */
+.simple {
+    width: 50%;
+    margin-left: 25%;
+}
+
+/* 
+ * All the more advanced examples use collapsed borders. Separate borders is the default,
+ * but most tables use collapsed borders (it seems more natural).
+ */
+.interesting, .coltable, .intersection {
+    border-collapse: collapse;
+}
+
+/* Striped rows for readability, but only rows in the tbody (not in the thead) */
+.interesting tbody tr:nth-child(even) td {
+    background: #dedede;
+}
+
+/* Yellow headers */
+.yellow-headers th {
+    background: yellow;
+}
+
+/* 
+ * Note the need to specify th.old-capital and not just .old-capital: this is to
+ * increase the specificity of this rule to take precedence over the th rule above.
+ *
+ * The simpler rule is used by the table with defined columns to color the whole column.
+ */
+th.old-capital, .old-capital {
+    background: #dd99ee;
+}
+
+th.new-capital, .new-capital {
+    background: #99eedd;
+}
+
+/* Move the caption and style it */
+.interesting caption {
+    caption-side: bottom;
+    font-style: italic;
+}
+
+/*
+ * This rule excludes row headers. Note that the increase in specificity requires an
+ * increase in the other rules or all the headers will be yellow.
+ */
+.yellow-col-headers th:not([scope="row"]) {
+    background: yellow;
+}
+
+.yellow-col-headers th.old-capital[scope="col"] {
+    background: #dd99ee;
+}
+
+.yellow-col-headers th.new-capital[scope="col"] {
+    background: #99eedd;
+}
+
+/* 
+ * Intersection styling is surprisingly hard to do and simply cannot be done using col 
+ * because the specificity of col is always lower than anything applied to a tr or td
+ */
+.intersection tbody tr:nth-child(even) td {
+    background: #dedede;
+}
+
+.intersection td:nth-child(2) {
+    background: #dd99ee;
+}
+
+.intersection td:nth-child(3) {
+    background: #99eedd;
+}
+
+.intersection tbody tr:nth-child(even) td:nth-child(2) {
+    background: #bc78cd;
+}
+
+.intersection tbody tr:nth-child(even) td:nth-child(3) {
+    background: #78cdbc;
+}
+
+/*
+ * In the case where we have row headers, color them the same as the row. Note that we
+ * could have changed the selector above to accomplish this, but preferred to keep that
+ * one simple and separate out this more advanced functionality.
+ */
+.interesting tbody tr:nth-child(even) th[scope="row"] {
+    background: #dedede;
+}

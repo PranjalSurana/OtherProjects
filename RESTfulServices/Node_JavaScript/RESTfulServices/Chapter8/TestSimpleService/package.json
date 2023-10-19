@@ -1,0 +1,13 @@
+{
+  "name": "axios-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jasmine"
+  },
+  "devDependencies": {
+    "axios": "^1.2.2",
+    "jasmine": "^4.6.0",
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- This bean does injection by setter, which breaks the circular problem -->                       
+	<bean id="no-way" class="com.fidelity.circular.Film">
+		<property name="title" value="Lawrence Gump and the Pirate Wall of Quantico" />
+		<property name="cast">
+			<list>
+				<ref bean="parrish" />
+				<ref bean="gump" />
+				<ref bean="lin" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="parrish" class="com.fidelity.circular.Role">
+		<constructor-arg index="0" ref="no-way" />
+		<constructor-arg index="1" value="Alex Parrish" />
+		<constructor-arg index="2" ref="chopra" />
+	</bean>
+
+	<bean id="gump" class="com.fidelity.circular.Role">
+		<constructor-arg index="0" ref="no-way" />
+		<constructor-arg index="1" value="Forrest Gump" />
+		<constructor-arg index="2" ref="hanks" />
+	</bean>
+
+	<bean id="lin" class="com.fidelity.circular.Role">
+		<constructor-arg index="0" ref="no-way" />
+		<constructor-arg index="1" value="Lin Mae" />
+		<constructor-arg index="2" ref="jing" />
+	</bean>
+
+	<bean id="chopra" class="com.fidelity.circular.Actor">
+		<constructor-arg index="0" value="Priyanka" />
+		<constructor-arg index="1" value="Chopra" />
+	</bean>
+
+	<bean id="depp" class="com.fidelity.circular.Actor">
+		<constructor-arg index="0" value="Johnny" />
+		<constructor-arg index="1" value="Depp" />
+	</bean>
+
+	<bean id="hanks" class="com.fidelity.circular.Actor">
+		<constructor-arg index="0" value="Tom" />
+		<constructor-arg index="1" value="Hanks" />
+	</bean>
+
+	<bean id="otoole" class="com.fidelity.circular.Actor">
+		<constructor-arg index="0" value="Peter" />
+		<constructor-arg index="1" value="O'Toole" />
+	</bean>
+
+	<bean id="jing" class="com.fidelity.circular.Actor">
+		<constructor-arg index="0" value="Jing" />
+		<constructor-arg index="1" value="Tian" />
+	</bean>
+
+</beans>

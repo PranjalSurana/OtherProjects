@@ -1,0 +1,40 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.highlight {
+    font-family: Verdana, sans-serif;
+    background-color: yellow;
+    color: green;
+}
+
+.song {
+    display: none;
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    display: block;
+}
+
+section {
+    border: 1px solid black;
+    margin-bottom: 4px;
+}
+
+.emphasis {
+    font-style: italic;
+}
+
+p, h2 {
+    margin-inline-start: 1rem;
+    margin-inline-end: 1rem;
+}
+
+/* This illustrates the native (CSS) selector equivalent to the jQuery filter expression */
+
+/* div:not(.wisdom) p {
+    font-style: italic;
+    color: brown;
+} */

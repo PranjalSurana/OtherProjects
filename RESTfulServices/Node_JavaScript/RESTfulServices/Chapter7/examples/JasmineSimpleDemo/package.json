@@ -1,0 +1,14 @@
+{
+  "name": "jasmineissue",
+  "version": "1.0.0",
+  "description": "Example that replicates the issue where jasmine can't execute multiple specs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine spec"
+  },
+  "author": "Mike Woinoski mike.woinoski@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^4.5.0"
+  }
+}

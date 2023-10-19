@@ -1,0 +1,20 @@
+{
+  "name": "node-product-api",
+  "version": "1.0.0",
+  "description": "CRUD REST API for Products built with Node.js",
+  "main": "src/rest-controller/rest-controller.js",
+  "scripts": {
+    "start": "node src/rest-controller/rest-controller.js",
+    "start-nodemon": "nodemon src/rest-controller/rest-controller.js"
+  },
+  "author": "ROI Instructor Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "jasmine": "^4.5.0"
+  }
+}

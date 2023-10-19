@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        fieldset {
+            width: 200px;
+        }
+
+        button {
+            margin-top: 1em;
+        }
+    </style>
+    <title>Simple Form With Vanilla FieldSet</title>
+</head>
+
+<body>
+    <form action="results.html">
+        <fieldset>
+            <legend>Contact Method:</legend>
+            <input type="radio" id="byEmail" name="contact" value="email" checked>
+            <label for="byEmail">Email</label>
+            <input type="radio" id="byPhone" name="contact" value="phone">
+            <label for="byPhone">Phone</label>
+        </fieldset>
+
+        <button type="submit">Send your message</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+/* 
+ * Done: Add a rule that displays the page in a sans serif font
+ * Done: Add a rule that displays every other paragraph in blue
+ */
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p:nth-child(even) {
+    color: green;
+}
+
+:link {
+    font-size: smaller;
+}
+
+a:hover::after {
+    content: "\2198";
+}

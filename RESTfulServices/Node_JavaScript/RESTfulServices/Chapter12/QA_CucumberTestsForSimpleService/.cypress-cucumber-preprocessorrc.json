@@ -1,0 +1,6 @@
+{
+    "stepDefinitions": [
+        "cypress/**/*steps.js",
+        "cypress/**/*steps.cy.js"
+    ]
+}

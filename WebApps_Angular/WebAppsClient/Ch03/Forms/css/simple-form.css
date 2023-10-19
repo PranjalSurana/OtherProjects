@@ -1,0 +1,59 @@
+/* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+
+html, textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+
+    display: grid; 
+    grid-template-columns: calc(100px - 0.5em) 300px; 
+    grid-row-gap: 1em; 
+    grid-column-gap: 0.5em;
+}
+
+.col1 {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.col2 {
+    grid-column: 2;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+input, textarea {
+    /* Set the font height to the full height, normally input fields are slightly shorter */
+    font-size: 1em;
+    width: 300px;
+    border: 1px solid #999;
+    padding: 2px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0;
+    width: 1em;
+    height: 1em;
+}
+
+/* To give a little highlight on active elements */
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+}

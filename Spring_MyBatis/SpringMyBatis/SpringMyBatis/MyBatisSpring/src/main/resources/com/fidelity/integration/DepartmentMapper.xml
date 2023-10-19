@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fidelity.integration.DepartmentMapper">
+
+    <resultMap type="Department" id="DepartmentWithNestedEmployeeSelect">
+        <id property="deptno" column="ID"/>
+        <result property="name" column="CAT_NAME"/>
+        <collection property="employees" column="ID" select="getEmployees" />
+    </resultMap>
+
+    <select id="getEmployees" resultType="Employee">
+        SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno
+        FROM EMP
+        WHERE deptno = #{value}
+    </select>
+
+    <select id="getDepartments" resultMap="DepartmentWithNestedEmployeeSelect">
+        SELECT deptno, dname, loc FROM DEPT
+    </select>
+
+</mapper>

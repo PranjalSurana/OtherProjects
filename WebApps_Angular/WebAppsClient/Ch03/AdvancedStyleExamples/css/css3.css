@@ -1,0 +1,135 @@
+
+div {
+    margin: 20px;
+}
+
+#shadow {
+    width: 100px;
+    height: 100px;
+    background-color: #eeeeee;
+    box-shadow: 10px 10px 5px #bbb;
+}
+
+#rounded-corners {
+    border: 2px solid black;
+    padding: 5px; 
+    background: #eeeeee;
+    width: 100px;
+    border-radius: 15px;
+}
+
+#linear-gradient {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: linear-gradient(to bottom right , green 10%, yellow, red); 
+}
+
+#linear-stripes {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: linear-gradient(to bottom right , green 32%, yellow 32% 68%, red 68%); 
+}
+
+#radial-gradient {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    /* background: radial-gradient(circle, green, yellow, red);  */
+    background: radial-gradient(circle, #0055A4, white, #EF4135, white); 
+}
+
+#radial-stripes {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: radial-gradient(circle, #0055A4 24%, white 24% 48%, #EF4135 48% 71%, white 71%); 
+}
+
+#conic-stripes {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: conic-gradient( green 20%, yellow 20% 60%, red 60%); 
+    border-radius: 50%; /* make it a circle */
+}
+
+#transition {
+    width: 200px;
+    background: #dedede;
+}
+
+#transition div {
+    width: 100px;
+    height: 20px;
+    background: green;
+    transition-property: width;
+    transition-duration: 2s;
+    margin-left: 0px;
+}
+
+#transition:hover div {
+    width: 200px;
+}
+
+#transition1 {
+    transition-timing-function: ease-in-out; 
+}
+
+#transition2 {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+#transition3 {
+    transition-timing-function: linear; 
+}
+
+#transform {
+    width: 200px;
+    height: 100px;
+    background: #dedede;
+}
+
+#transform div {
+    width: 50px;
+    height: 50px;
+    background: green;
+    margin: 25px 6px;
+    display: inline-block;
+}
+
+#transform div:first-child {
+    margin-left: 12px;
+}
+
+#transform:hover #transform1 {
+    transform: translateY(-20px);
+}
+
+#transform:hover #transform2 {
+    transform: rotate(30deg);
+}
+
+#transform:hover #transform3 {
+    transform: skewX(-30deg);
+}
+
+#svg-container {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+#gradient-container {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+}
+
+#svg-pie {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    transform: rotate(-90deg);
+}

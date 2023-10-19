@@ -1,0 +1,28 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.roi-icon {
+    width: 240px;
+    height: 240px;
+}
+
+.roi-enabled path.roi-path {
+    fill: rgb(59, 120, 231);
+}
+
+.roi-disabled path {
+    fill: rgba(0, 0, 0, 0.38);
+}
+
+.roi-enabled path:hover {
+    stroke-opacity: 1;
+}
+
+.grid-container {
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px 10px;
+}

@@ -1,0 +1,32 @@
+<nav class="nav-menu">
+    <button class="nav-button" (click)="loadEtfs()">Show ETFs</button>
+    <button class="nav-button" (click)="loadETFsBy3MTR()">Show ETFs By 3 Month TR</button>
+    <button class="nav-button" (click)="loadETFsByER()">Show ETFs By ER</button>
+    <button class="nav-button" (click)="loadETFsyAUMBill()"> Show ETFs By AUM Bill</button>
+</nav>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Fund_Name</th>
+                <th>Issuer</th>
+                <th>AUM_bil</th>
+                <th>Expense_Ratio</th>
+                <th>ThreeMoTR</th>
+                <th>Segment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let etf of etflist">
+                <td>{{etf.Ticker}}</td>
+                <td>{{etf.Fund_Name}}</td>
+                <td>{{etf.Issuer}}</td>
+                <td>{{etf.AUM_bil}}</td>
+                <td>{{etf.Expense_Ratio}}</td>
+                <td>{{etf.ThreeMoTR}}</td>
+                <td>{{etf.Segment}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

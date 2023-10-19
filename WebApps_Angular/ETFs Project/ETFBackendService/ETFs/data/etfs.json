@@ -1,0 +1,92 @@
+[
+    {
+        "Ticker": "GLD",
+        "Fund_Name": "SPDR Gold Trust",
+        "Issuer": "State Street Global Advisors",
+        "AUM_bil": 58.76,
+        "Expense_Ratio": 0.004,
+        "ThreeMoTR": 0.0784,
+        "Segment": "Commodities: Precious Metals Gold"
+    },
+    {
+        "Ticker": "IAU",
+        "Fund_Name": "iShares Gold Trust",
+        "Issuer": "Blackrock",
+        "AUM_bil": 23.24,
+        "Expense_Ratio": 0.0025,
+        "ThreeMoTR": 0.0782,
+        "Segment": "Commodities: Precious Metals Gold"
+    },
+    {
+        "Ticker": "SLV",
+        "Fund_Name": "iShares Silver Trust",
+        "Issuer": "Blackrock",
+        "AUM_bil": 6.09,
+        "Expense_Ratio": 0.005,
+        "ThreeMoTR": -0.163,
+        "Segment": "Commodities: Precious Metals Silver"
+    },
+    {
+        "Ticker": "USO",
+        "Fund_Name": "United States Oil Fund LP",
+        "Issuer": "US Commodity Funds",
+        "AUM_bil": 3.93,
+        "Expense_Ratio": 0.0079,
+        "ThreeMoTR": -0.7573,
+        "Segment": "Commodities: Energy Crude Oil"
+    },
+    {
+        "Ticker": "GLDM",
+        "Fund_Name": "SPDR Gold MiniShares Trust",
+        "Issuer": "State Street Global Advisors",
+        "AUM_bil": 2.08,
+        "Expense_Ratio": 0.0018,
+        "ThreeMoTR": 0.0801,
+        "Segment": "Commodities: Precious Metals Gold"
+    },
+    {
+        "Ticker": "SGOL",
+        "Fund_Name": "Aberdeen Standard Physical Gold Shares ETF",
+        "Issuer": "Aberdeen Standard Investments",
+        "AUM_bil": 1.83,
+        "Expense_Ratio": 0.0017,
+        "ThreeMoTR": 0.0796,
+        "Segment": "Commodities: Precious Metals Gold"
+    },
+    {
+        "Ticker": "PDBC",
+        "Fund_Name": "Invesco Optimum Yield Diversified Commodity Strategy No K-1 …",
+        "Issuer": "Invesco",
+        "AUM_bil": 1.81,
+        "Expense_Ratio": 0.0059,
+        "ThreeMoTR": -0.2409,
+        "Segment": "Commodities: Broad Market"
+    },
+    {
+        "Ticker": "BAR",
+        "Fund_Name": "GraniteShares Gold Trust",
+        "Issuer": "GraniteShares",
+        "AUM_bil": 0.877,
+        "Expense_Ratio": 0.0017,
+        "ThreeMoTR": 0.0795,
+        "Segment": "Commodities: Precious Metals Gold"
+    },
+    {
+        "Ticker": "DBC",
+        "Fund_Name": "Invesco DB Commodity Index Tracking Fund",
+        "Issuer": "Invesco",
+        "AUM_bil": 0.769,
+        "Expense_Ratio": 0.0089,
+        "ThreeMoTR": -0.2505,
+        "Segment": "Commodities: Broad Market"
+    },
+    {
+        "Ticker": "PPLT",
+        "Fund_Name": "Aberdeen Standard Physical Platinum Shares ETF",
+        "Issuer": "Aberdeen Standard Investments",
+        "AUM_bil": 0.579,
+        "Expense_Ratio": 0.006,
+        "ThreeMoTR": -0.2196,
+        "Segment": "Commodities: Precious Metals Platinum"
+    }
+]

@@ -1,0 +1,68 @@
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div {
+    padding: 10px;
+}
+
+/*
+ * This element will contain the others, it is the "flex container".
+ *
+ * As well as setting display to be flex, we can define the overall
+ * relationship between the individual items: in this case, the items
+ * will be spaced evenly in the available width and aligned along their
+ * horizontal center-line.
+ */
+#container {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid cornflowerblue;
+}
+
+#a, #d {
+    height: 100px;
+}
+
+#b, #e {
+    height: 50px; 
+}
+
+#c {
+    height: 150px;
+}
+
+/* 
+ * This item will be aligned (in other words, arranged on the vertical
+ * axis), differently: specifically, it will be aligned at the end of the
+ * flex container (on the bottom).
+ *
+ * Overall, CSS is moving towards neutral terms like start and end rather
+ * than top, bottom, left and right. The settings then still hold true when
+ * using writing systems that are not left-to-right, or when items are 
+ * transformed in some way.
+ */
+#b {
+    align-self: flex-end;
+}
+
+/*
+ * Items inside the flex container use this style.
+ *
+ * As well as defining their basic appearance, it defines how they react
+ * when the available space is changed. Setting the flex-grow of all items
+ * to the same value means they all increase or decrease in size uniformly.
+ * The size of each individual item will depend on the content (flex-basis).
+ */
+.item {
+    background-color: seagreen;
+    color: white;
+    border-radius: 10px;
+    max-width: 100px;
+    flex-grow: 1;
+    flex-basis: auto;
+    text-align: center;
+}

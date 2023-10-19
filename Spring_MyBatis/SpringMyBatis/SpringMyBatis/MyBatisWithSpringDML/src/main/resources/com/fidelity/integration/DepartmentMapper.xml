@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fidelity.integration.DepartmentMapper">
+
+	<resultMap type="Department" id="DepartmentAndEmployees">
+		<id property="id"				column="id" />
+		<result property="name"			column="dname" />
+		<result property="location"		column="loc" />
+		<collection property="employees" resultMap="EmployeeMap" />
+	</resultMap>
+
+	<resultMap type="Employee" id="EmployeeMap">
+		<id property="id"				column="empno" />
+		<result property="name"			column="ename" />
+		<result property="job"			column="job" />
+		<result property="manager"		column="mgr" />
+		<result property="hireDate"		column="hiredate" />
+		<result property="salary"		column="sal" />
+		<result property="commission"	column="comm" />
+		<result property="deptId"		column="deptno" />
+	</resultMap>
+
+	<select id="getAllDepartments" resultType="Department">
+		SELECT deptno AS id,
+		dname AS name,
+		loc AS location
+		FROM   dept
+		ORDER BY
+		id
+	</select>
+
+	<select id="getAllDepartmentsAndEmployees" resultMap="DepartmentAndEmployees">
+		SELECT d.deptno AS id,
+		d.dname,
+		d.loc,
+		e.empno,
+		e.ename,
+		e.job,
+		e.mgr,
+		e.hiredate,
+		e.sal,
+		e.comm,
+		e.deptno
+		FROM   dept d
+		LEFT OUTER JOIN
+		emp e
+		ON     d.deptno = e.deptno
+		ORDER BY
+		id, e.empno
+	</select>
+
+	<insert id="insertDepartment" parameterType="Department">
+		INSERT INTO dept (
+		deptno,
+		dname,
+		loc
+		)
+		VALUES (
+		#{id},
+		#{name},
+		#{location}
+		)
+	</insert>
+
+	<update id="updateDepartment" parameterType="Department">
+		UPDATE dept
+		SET    dname = #{name},
+		loc = #{location}
+		WHERE  deptno = #{id}
+	</update>
+
+	<!-- Not asked for, but allows us to demonstrate the constraint violation -->
+	<delete id="deleteDepartment" parameterType="int">
+		DELETE FROM dept
+		WHERE  deptno = #{id}
+	</delete>
+
+	<update id="reassignEmployeesDeleteDepartment" parameterType="java.util.Map" statementType="CALLABLE">
+		{ CALL proc_reassign_emp_delete_dept(#{deptDelete, mode=IN, jdbcType=INTEGER}, #{deptAssign, mode=IN, jdbcType=INTEGER}) }
+	</update>
+
+</mapper>

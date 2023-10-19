@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fidelity.integration.ProductMapper">
+  
+    <resultMap type="Product" id="ProductMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+    </resultMap>
+
+    <resultMap type="Product" id="ProductWithDetailMap">
+        <id     property="productId"           column="PRODUCTID"/>
+        <result property="name"                column="NAME"/>
+        <result property="description"         column="DESCN"/>
+        <result property="categoryId"          column="CATEGORY"/>
+        <result property="detail.productId"    column="PRODUCTID"/>
+        <result property="detail.manufacturer" column="MANUFACTURER"/>
+        <result property="detail.sku"          column="SKU"/>
+        <result property="detail.upc"          column="UPC"/>
+        <result property="detail.minimumAge"   column="MINIMUM_AGE"/>
+     </resultMap>
+
+    <resultMap type="Product" id="ProductWithDetailByExtension" extends="ProductMap">
+        <result property="detail.productId"    column="PRODUCTID"/>
+        <result property="detail.manufacturer" column="MANUFACTURER"/>
+        <result property="detail.sku"          column="SKU"/>
+        <result property="detail.upc"          column="UPC"/>
+        <result property="detail.minimumAge"   column="MINIMUM_AGE"/>
+     </resultMap>
+
+    <resultMap type="Product" id="ProductWithNestedDetailMap">
+        <id     property="productId"    column="PRODUCTID"/>
+        <result property="name"         column="NAME"/>
+        <result property="description"  column="DESCN"/>
+        <result property="categoryId"   column="CATEGORY"/>
+        <association property="detail" resultMap="ProductDetailMap" />
+    </resultMap>
+
+    <resultMap type="ProductDetail" id="ProductDetailMap">
+        <id     property="productId"    column="PRODUCTID"/>
+        <result property="manufacturer" column="MANUFACTURER"/>
+        <result property="sku"          column="SKU"/>
+        <result property="upc"          column="UPC"/>
+        <result property="minimumAge"   column="MINIMUM_AGE"/>
+    </resultMap>
+
+    <resultMap type="Category" id="CategoryWithNestedProductMap">
+        <id     property="categoryId"   column="ID"/>
+        <result property="name"         column="CAT_NAME"/>
+        <collection property="products" resultMap="ProductMap" />
+    </resultMap>
+
+    <select id="getProducts2" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product2
+    </select>
+
+	<!-- Example of using enums -->
+    <resultMap type="Product" id="ProductWithTypeIdMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+        <result property="type"        column="PRODUCT_TYPE_ID" 
+            typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </resultMap>
+
+ 	<select id="getProductsWithTypeId" resultMap="ProductWithTypeIdMap">
+        SELECT productid, name, descn, category, product_type_id
+        FROM   product
+        WHERE  product_type_id IS NOT NULL
+	</select>
+
+	<insert id="insertProductWithTypeId" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category, product_type_id)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId}, 
+            #{type, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+	</insert>
+
+    <resultMap type="Product" id="ProductWithTypeNameMap">
+        <id     property="productId"   column="PRODUCTID"/>
+        <result property="name"        column="NAME"/>
+        <result property="description" column="DESCN"/>
+        <result property="categoryId"  column="CATEGORY"/>
+        <result property="type"        column="PRODUCT_TYPE_NAME"/>
+    </resultMap>
+
+ 	<select id="getProductsWithTypeName" resultMap="ProductWithTypeNameMap">
+        SELECT productid, name, descn, category, product_type_name
+        FROM   product
+        WHERE  product_type_name IS NOT NULL
+	</select>
+	
+	<insert id="insertProductWithTypeName" parameterType="Product">
+        INSERT INTO product (productid, name, descn, category, product_type_name)
+        VALUES (#{productId}, #{name}, #{description}, #{categoryId}, #{type})
+	</insert>
+
+	<!-- Multiple parameters -->
+ 	<select id="getProductsByCategoryAndNameMap" parameterType="java.util.Map" resultMap="ProductMap">
+        SELECT productid, name, descn, category
+        FROM   product
+        WHERE  category = #{categoryId}
+        AND    name     LIKE #{name}
+	</select>
+
+
+</mapper>

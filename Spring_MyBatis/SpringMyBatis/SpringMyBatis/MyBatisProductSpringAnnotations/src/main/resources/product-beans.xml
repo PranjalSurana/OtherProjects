@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     	http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+     	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Read the Oracle database credentials from the db.properties file -->
+	<context:property-placeholder location="classpath:db.properties" />
+	
+	<!-- Define a DataSource for the Oracle database -->
+	<bean id="oracleDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="${db.url}" />
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+	<!-- Define a DataSource for an in-memory database -->
+	<jdbc:embedded-database id="hsqldbDataSource">
+		<jdbc:script location="classpath:products-hsqldb-schema.sql" />
+		<jdbc:script location="classpath:products-hsqldb-dataload.sql" />
+	</jdbc:embedded-database>
+	
+	<!-- Define an alias for the desired DataSource bean 
+		 Set the name to the DataSource you want to use -->	 
+	<alias name="hsqldbDataSource" alias="datasource" />
+	
+	<!-- Define a transaction manager
+		 Use DataSourceTransactionManager for transactions on a single database -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource" />
+	</bean>
+
+	<!-- Enable component scanning and autowire for the integration and services packages
+		 (beware that this does not enable mapper scanning!) -->
+	<context:component-scan base-package="com.fidelity.integration, com.fidelity.services" />
+
+	<!-- Enable transaction demarcation with annotations -->
+	<tx:annotation-driven />
+
+	<!-- Define the SqlSessionFactory for MyBatis -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource" />
+		<property name="typeAliasesPackage" value="com.fidelity.domain" />
+		<property name="mapperLocations" value="classpath*:com/fidelity/**/*.xml" />
+	</bean>
+
+	<!-- Scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.fidelity.integration" />
+	</bean>
+	
+	<!-- Normally, when using mappers, we don't need this - only need it to use SqlSession directly -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+
+</beans>

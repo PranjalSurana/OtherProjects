@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example of JavaScript syntax</title>
+</head>
+
+<body>
+    <h1>The little zipcodes</h1>
+    <script>
+        function ZipCode(city_, brokenPart_) {
+            var city = city_;
+            var brokenPart = brokenPart_;
+            this.getLine = function () {
+                return city + ' fell down and broke his ' + brokenPart + ' <br>';
+            }
+        }
+        var zips = [
+            new ZipCode('New York', 'Coney'),
+            new ZipCode('Chicago', 'broad shoulder'),
+            new ZipCode('San Francisco', 'lettuce'),
+            new ZipCode('New Orleans', 'etouffe'),
+            new ZipCode('Houston', 'oil rig'),
+            new ZipCode('Seattle', 'Puget'),
+            new ZipCode('Portland', 'bicycle'),
+            new ZipCode('Boston', 'Brahmin'),
+            new ZipCode('LA', 'Oscar')
+        ];
+        var song = '';
+        var numZips = zips.length;
+        while (numZips > 0) {
+            song += numZips + ' little zipcodes jumping on the bed <br>';
+            song += zips[numZips - 1].getLine();
+            --numZips;
+        }
+        song += 'No more zipcodes jumping on the bed!<br>';
+        document.write(song);
+        alert('Scan? Meter? Rhyme? What are those?');
+    </script>
+
+</body>
+
+</html>

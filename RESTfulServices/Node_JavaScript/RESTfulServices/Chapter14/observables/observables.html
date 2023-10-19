@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Observables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://unpkg.com/rx-lite@4.0.8/rx.lite.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="observables.js"></script>
+</head>
+
+<body>
+    <h1>Observables Demo</h1>
+    <button id="coldButton1" onclick="registerColdObserver1()">Start Cold Subscription 1</button>
+    <div id="coldSubscription1">
+        Cold Subscription 1 Output Appears Here
+    </div>
+    <button id="coldButton2" onclick="registerColdObserver2()">Start Cold Subscription 2</button>
+    <div id="coldSubscription2">
+        Cold Subscription 2 Output Appears Here
+    </div>
+    <button id="hotButton1" onclick="registerHotObserver1()">Start Hot Subscription 1</button>
+    <div id="hotSubscription1">
+        Hot Subscription 1 Output Appears Here
+    </div>
+    <button id="hotButton2" onclick="registerHotObserver2()">Start Hot Subscription 2</button>
+    <div id="hotSubscription2">
+        Hot Subscription 2 Output Appears Here
+    </div>
+</body>
+
+</html>

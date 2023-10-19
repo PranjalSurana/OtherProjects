@@ -1,0 +1,63 @@
+<nav class="nav-menu">
+    <select name="defaultTrail" id="defaultTrail" (change)="loadDefaultTrails($event)">
+        <option value="">Show Trails</option>
+        <option value="defaultAsc">Show Trails Asc</option>
+        <option value="defaultDesc">Show Trails Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select> 
+    <select name="trailByName" id="trailByName" (change)="loadSortedByName($event)">
+        <option value="">By Name</option>
+        <option value="defaultAsc">Show Trails By Name Asc</option>
+        <option value="defaultDesc">Show Trails By Name Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select>
+    <select name="trailByLength" id="trailByLength" (change)="loadSortedByLength($event)">
+        <option value="">By Length</option>
+        <option value="defaultAsc">Show Trails By Length Asc</option>
+        <option value="defaultDesc">Show Trails By Length Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select>
+    <select name="trailByTimeToComplete" id="trailByTimeToComplete" (change)="loadTrailsSortedByTimeToComplete($event)">
+        <option value="">By Time to Complete</option>
+        <option value="defaultAsc">Show Trails By Time to Complete Asc</option>
+        <option value="defaultDesc">Show Trails By Time to Complete Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select>
+    <select name="trailByDrivingTime" id="trailByDrivingTime" (change)="loadTrailsSortedByDrivingTime($event)">
+        <option value="">By Driving Time</option>
+        <option value="defaultAsc">Show Trails By Driving Time Asc</option>
+        <option value="defaultDesc">Show Trails By Driving Time Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select>
+    <select name="trailByDifficulty" id="trailByDifficulty" (change)="loadTrailsSortedByDifficulty($event)">
+        <option value="">By Difficulty</option>
+        <option value="defaultAsc">Show Trails By Difficulty Asc</option>
+        <option value="defaultDesc">Show Trails By Difficulty Desc</option>
+        <option value="customvalue">Top 3</option>
+    </select>
+</nav>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Length</th>
+                <th>Time To Complete</th>
+                <th>Driving Time</th>
+                <th>Difficulty</th>
+                <th>Comments</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let trail of galwaytraillist">
+                <td>{{trail.name}}</td>
+                <td>{{trail.length | number: '.2-2'}}</td>
+                <td>{{trail.timeToComplete | number: '1.2-2'}}</td>
+                <td>{{trail.drivingTime | number: '1.2-2'}}</td>
+                <td>{{trail.difficulty}}</td>
+                <td>{{trail.comments}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

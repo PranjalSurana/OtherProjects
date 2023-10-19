@@ -1,0 +1,31 @@
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    line-height: 1.5em;
+}
+
+.hide:hover {
+    background-color: crimson;
+}
+
+.show:hover {
+    background-color: darkolivegreen;
+}
+
+/* used by the bonus */
+.toggle:hover {
+    background-color: cadetblue;
+}
+.animate:hover {
+    background-color: rebeccapurple;
+}
+
+/* give them some substance */
+div {
+    padding: 10px;
+    height: 100px;
+    outline: 1px solid orchid;
+}

@@ -1,0 +1,41 @@
+/* 
+ * Done: Add a rule that displays the page in a sans serif font
+ * Done: Add a rule that displays every other paragraph in blue
+ */
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(to bottom, #fffdd0 20%, ivory);
+}
+p:nth-child(even) {
+    color: blue;
+}
+
+:link {
+    font-size: smaller;
+}
+
+a:hover::after {
+    content: "\2198";
+}
+
+#pic1 {
+    float: left;
+}
+
+#pic2 {
+    float: right;
+}
+
+img {
+    width: 300px;
+    box-shadow: 10px 10px 5px #bbb;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition-property: width;
+    transition-duration: 1s;
+}
+
+img:hover {
+    width: 600px;
+}

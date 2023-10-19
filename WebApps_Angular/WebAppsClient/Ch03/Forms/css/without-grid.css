@@ -1,0 +1,91 @@
+/* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+
+html, textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+form div+div {
+    margin-top: 1em;
+}
+
+/* All the labels are on the left, except that for the checkbox,
+   so align them accordingly. */
+
+form span, label {
+    display: inline-block;
+}
+
+label {
+    width: 100%;
+    text-align: right;
+}
+
+/* Needs a little work to align the text label with the input fields.
+ * What this does is moves 2px from the left to the right of the bounding
+ * box. 2px is approximately the distance between the left hand bound and 
+ * the start of the upright of the "P" in "Please". It remains consistent 
+ * over a wide range of font sizes.
+ */
+
+label[for="optin"] {
+    text-align: left;
+    width: 100%;
+    width: calc(100% + 2px);
+    margin-left: -2px;
+}
+
+label[for="byEmail"], label[for="byPhone"] {
+    text-align: left;
+}
+
+input, textarea {
+    /* Set the font height to the full height, normally input fields are slightly shorter */
+    font-size: 1em;
+    width: 300px;
+    border: 1px solid #999;
+    padding: 2px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0;
+    width: 1em;
+    height: 1em;
+}
+
+/* To give a little highlight on active elements */
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+/*
+ * Calculate the width to be the size of the labels, which
+ * are total-width - input-width - 2 * (border + padding)
+ */
+
+#checkbox-container {
+    text-align: right;
+    width: calc(100px - 2px - 4px);
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+}
+
+/*
+ * Add padding equivalent to the width of the labels
+ */
+
+.button {
+    padding-left: calc(100px - 2px - 4px);
+}

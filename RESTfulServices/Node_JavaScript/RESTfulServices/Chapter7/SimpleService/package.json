@@ -1,0 +1,16 @@
+{
+  "name": "simpleservice",
+  "version": "1.0.0",
+  "description": "A simple controller for a CRUD API for contacts",
+  "main": "src/service/contact-rest-controller.js",
+  "scripts": {
+    "start": "node src/service/contact-rest-controller.js",
+    "test": "jasmine spec/service/contact-rest-controller.spec.js"
+  },
+  "author": "Fidelity FSE",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jasmine": "^5.1.0"
+  }
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- The namespace defines the location of the Java interface. -->
+<!-- The operation names here must match the method names in the interface. -->
+<mapper namespace="com.roifmr.presidents.integration.mapper.PresidentMapper">
+
+    <resultMap id="PresidentMap" type="President">
+        <id column="PRESIDENTID" property="id"/>
+        <result column="FIRSTNAME" property="firstName"/>
+        <result column="LASTNAME" property="lastName"/>
+        <result column="STARTYEAR" property="startYear"/>
+        <result column="ENDYEAR" property="endYear"/>
+        <result column="IMAGEPATH" property="imagePath"/>
+        <result column="BIO" property="bio"/>
+    </resultMap>
+
+    <select id="getAllPresidents" resultMap="PresidentMap">
+        SELECT PRESIDENTID, FIRSTNAME, LASTNAME, STARTYEAR, ENDYEAR, IMAGEPATH, BIO
+        from presidents
+        order by PRESIDENTID
+    </select>
+
+    <select id="getPresident" parameterType="int" resultMap="PresidentMap">
+        SELECT PRESIDENTID, FIRSTNAME, LASTNAME, STARTYEAR, ENDYEAR, IMAGEPATH, BIO
+        from presidents
+        where PRESIDENTID = #{id}
+        order by PRESIDENTID
+    </select>
+
+    <delete id="deletePresident" parameterType="int">
+        delete from presidents
+        where PRESIDENTID = #{id}
+    </delete>
+
+    <update id="updatePresident" parameterType="President">
+        update presidents
+        set
+        FIRSTNAME = #{firstName},
+        LASTNAME = #{lastName},
+        STARTYEAR = #{startYear},
+        ENDYEAR = #{endYear},
+        IMAGEPATH = #{imagePath},
+        BIO = #{bio}
+        where PRESIDENTID = #{id}
+    </update>
+
+    <insert id="insertPresident" parameterType="President">
+        insert into presidents
+        (PRESIDENTID, FIRSTNAME, LASTNAME, STARTYEAR, ENDYEAR, IMAGEPATH, BIO)
+        values
+        (#{id}, #{firstName}, #{lastName}, #{startYear}, #{endYear}, #{imagePath}, #{bio})
+    </insert>
+
+</mapper>

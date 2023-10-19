@@ -1,0 +1,76 @@
+/* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    width: 500px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+form fieldset+fieldset {
+    margin-top: 1em;
+}
+
+.container {
+    display: grid; 
+    grid-template-columns: calc(150px - 1em) 300px; 
+    grid-row-gap: 1em; 
+    grid-column-gap: 1em;
+}
+
+.col1 {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.col2 {
+    grid-column: 2;
+}
+
+.spancol {
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+.error {
+    color: red;
+    background-color: peachpuff;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+input {
+    /* Set the font height to the full height, normally input fields are slightly shorter */
+    font-size: 1em;
+    width: 300px;
+    border: 1px solid #999;
+    padding: 2px;
+}
+
+select {
+    box-sizing: content-box;
+}
+
+/* To give a little highlight on active elements */
+
+input:focus, select:focus {
+    border-color: #000;
+}
+
+button {
+    margin-top: 1em;
+    margin-left: 2px;
+    font-size: 1em;
+}

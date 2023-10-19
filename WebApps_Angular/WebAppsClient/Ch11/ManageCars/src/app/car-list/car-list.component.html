@@ -1,0 +1,28 @@
+<nav class="nav-menu">
+    <button class="nav-button" (click)="loadAllCars()">Show Cars</button>
+    <button class="nav-button" (click)="loadCarsByPrice()">Show Cars by Price</button>
+    <button class="nav-button" (click)="loadCarsByYear()">Show Cars By Year</button>
+    <button class="nav-button" (click)="loadCarsByDoors()">Show Cars by Doors</button>
+</nav>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Doors</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of carlist">
+                <td>{{car.make}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.doors}}</td>
+                <td>{{car.year}}</td>
+                <td>{{car.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

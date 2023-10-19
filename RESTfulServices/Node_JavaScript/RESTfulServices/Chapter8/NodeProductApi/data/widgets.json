@@ -1,0 +1,5 @@
+ [
+    { "id": 1, "description": "Good Widget", "price": 12.99, "gears": 2, "sprockets": 3 },
+    { "id": 2, "description": "Better Widget", "price": 42.99, "gears": 5, "sprockets": 5 },
+    { "id": 3, "description": "Best Ever Widget", "price": 89.99, "gears": 10, "sprockets": 8 }
+]

@@ -1,0 +1,32 @@
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #694F5D;
+    color: #fff;
+  }
+  
+  .header.theme-1 {
+    background-color: #694F5D;
+  }
+  
+  .header.theme-2 {
+    background-color: #EFC7C2;
+  }
+  
+  .header.theme-3 {
+    background-color: #FFE5D4;
+  }
+
+.footer {
+    text-align: center; 
+    padding: 20px 0; 
+    position: absolute;
+    width: 100%;
+    font-weight: 300;
+    bottom: 0;
+  }
+
+  .footer.theme {
+    background-color: #694F5D;
+    color: #fff;
+  }

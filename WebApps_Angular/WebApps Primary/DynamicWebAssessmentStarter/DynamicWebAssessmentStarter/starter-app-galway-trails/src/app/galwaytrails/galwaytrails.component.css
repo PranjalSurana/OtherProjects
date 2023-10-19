@@ -1,0 +1,119 @@
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: #333;
+  }
+  
+  /* Style the buttons */
+  .nav-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #694F5D; 
+  }
+  
+  .nav-button:hover {
+    background-color: #555;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border-spacing: 0;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #694F5D;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    border-bottom: 2px solid #694F5D;
+  }
+  
+  tr {
+    background-color: #FFE5D4;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #FFE5D4;
+  }
+  
+  tr:hover {
+    background-color: #e5e5e5;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #EFC7C2;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+    th, td {
+      padding: 8px;
+    }
+  }
+  
+
+  select {
+    /* Set a custom font size and font family */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  
+    width: 175px;
+    /* Adjust the width and padding */
+    padding: 3px;
+    margin: 3px;
+  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+    background-color: #fff;
+    color: #333;
+  
+    /* Customize the appearance of the dropdown arrow */
+    appearance: none; /* Remove default dropdown arrow */
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 25px; /* Adjust padding to make room for the arrow */
+  
+    /* Style the dropdown options */
+  }
+  
+  /* Apply styles when the select element is hovered */
+  select:hover {
+    border-color: #333; /* Change border color on hover */
+  }
+  
+  /* Apply styles when the select element is focused */
+  select:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: #333; /* Change border color when focused */
+  }
+  
+  /* Style the dropdown options */
+  select option {
+    /* Define background and text colors for options */
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Style the dropdown options when hovered */
+  select option:hover {
+    background-color: #694F5D; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+  }
