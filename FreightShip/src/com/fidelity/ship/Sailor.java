@@ -1,0 +1,35 @@
+package com.fidelity.ship;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Sailor extends CrewMember {
+	
+	private String jobDescription;
+	private BigDecimal hourlyRate;
+	private int hoursWorked;
+
+	public Sailor(int id, String name, int payDay, String jobDescription, BigDecimal hourlyRate, int hoursWorked) {
+		super(id, name, payDay);
+		this.jobDescription = jobDescription;
+		this.hourlyRate = hourlyRate;
+		this.hoursWorked = hoursWorked;
+	}
+
+	@Override
+	public BigDecimal calcPay(LocalDate currDate) {
+		 BigDecimal pay = new BigDecimal("0.00");
+		int currDay = (int)currDate.getDayOfMonth();
+		int days = 0;
+		if(currDay <= payDay) {
+			days = payDay - currDay;
+		}
+		else {
+			days = 30 - payDay + currDay;
+		}
+		pay = BigDecimal.valueOf(days).multiply(hourlyRate).multiply(BigDecimal.valueOf(hoursWorked));
+		return pay;
+	}
+
+}

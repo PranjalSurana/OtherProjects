@@ -1,0 +1,14 @@
+package com.fidelity.incomecalculator;
+
+public class IncomeCalculator {
+	
+	public double errorValue = 0.0;
+
+	public double getActualPay(int hoursWorkedPerDay, double hourlyPay, int unpaidHolidays) {
+		if (unpaidHolidays < 0) {
+			return errorValue;
+		}		
+		return getAnnualPay(52 * 5 - unpaidHolidays, hoursWorkedPerDay, hourlyPay);
+	}
+	
+}

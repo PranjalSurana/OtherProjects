@@ -1,0 +1,93 @@
+package com.fidelity.rating;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+class VideoGameTest {
+
+	@Test
+	void testConstructorWithRating_Everyone() {
+		// TODO: this is how a rating should be set...
+		EsrbRating rating = EsrbRating.EVERYONE;
+
+		String title = "The Legend of Zelda: The Ocarina of Time";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		
+		assertEquals(EsrbRating.EVERYONE, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Everyone10Plus() {
+		// TODO: ...but the compiler allows any String to be used as a rating
+		EsrbRating rating = "Everyone 10 Plus";
+		
+		String title = "The Legend of Zelda: Breath of the Wild";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		String actualRating = videoGame.getRating();
+		
+		assertEquals(VideoGame.EVERYONE_10_PLUS, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Teen() {
+		// TODO: the compiler doesn't check spelling or case sensitivity
+		String rating = "TEEN";
+		
+		String title = "Fortnight"; 
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		String actualRating = videoGame.getRating();
+		
+		assertEquals(VideoGame.TEEN, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Mature() {
+		// TODO: in this case, the rating is spelled correctly...
+		String rating = "Mature";
+		
+		String title = "Starfield";
+
+		// TODO: ...but the constructor arguments are in the wrong order
+		VideoGame videoGame = new VideoGame(rating, title);
+		
+		String actualRating = videoGame.getRating();
+		
+		assertEquals(VideoGame.MATURE, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_AdultsOnly() {
+		// TODO: any string can be used as a rating
+		String rating = "Not even close";
+		
+		String title = "Singles";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		String actualRating = videoGame.getRating();
+		
+		assertEquals(VideoGame.ADULTS_ONLY, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_RatingPending() {
+		// TODO: an empty string can be used as a rating
+		String rating =  "";
+		
+		String title = "The Java Chronicles";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		String actualRating = videoGame.getRating();
+		
+		assertEquals(VideoGame.RATING_PENDING, actualRating);
+	}
+}

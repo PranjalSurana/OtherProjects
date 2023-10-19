@@ -1,0 +1,5 @@
+package com.fidelity.hackathon.freight;
+
+public abstract class CrewMember {
+
+}

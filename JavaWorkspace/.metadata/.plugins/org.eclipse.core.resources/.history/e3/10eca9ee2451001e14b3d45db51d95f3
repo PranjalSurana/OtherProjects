@@ -1,0 +1,20 @@
+package com.fidelity.payroll.services;
+
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.fidelity.payroll.Employee;
+
+public class PayrollService {
+	
+	public static void sort(List<Employee> emps) {
+		Collections.sort(emps);
+	}
+
+	public static void sort(List<Employee> emps, Comparator<Employee> comparator) {
+		Collections.sort(emps, comparator);
+	}
+
+}

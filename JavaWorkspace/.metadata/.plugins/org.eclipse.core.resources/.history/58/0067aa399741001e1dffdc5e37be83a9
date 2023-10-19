@@ -1,0 +1,6 @@
+
+public interface Account {
+
+	void deposit(int amount);
+
+}

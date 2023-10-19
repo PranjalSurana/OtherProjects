@@ -1,0 +1,10 @@
+
+public abstract class Film {
+	
+	private int filmId;
+	private String filmTitle;
+	private LocalDate timeStamp;
+	
+	
+
+}

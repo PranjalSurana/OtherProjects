@@ -1,0 +1,45 @@
+package com.fidelity.payrol;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class EmployeeTest {
+	
+	private Employee e;
+	
+	@BeforeEach
+	void setUp() {
+        e = new Employee("Jane Doe");
+	}
+
+	@Test
+	void testCalculateMonthlyPay() {
+        assertEquals(0.0, e.calculateMonthlyPay(), 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus1() {
+        assertEquals(0.0, e.calculateMonthlyPay(0.0), 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus2() {
+        assertEquals(10.0, e.calculateMonthlyPay(10.0), 0.001);
+	}
+	
+	@Test
+	void testPTEmployeeEqualityEquals() {
+		Employee emp = new PartTimeEmployee("John Doe", 10.0, 100);
+		assertEquals(new PartTimeEmployee("John Doe", 10.0, 100), emp);
+	}
+	
+	@Test
+	void testPTEmployeeEqualityNotEquals() {
+		Employee emp = new PartTimeEmployee("John Doe", 10.0, 100);
+		assertNotEquals(new PartTimeEmployee("John Doe", 10.0, 200), emp);
+	}
+	
+}

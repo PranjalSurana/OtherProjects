@@ -1,0 +1,28 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.Month;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class DigitalFilmTest {
+
+	DigitalFilm digitalFilm;
+	
+	@Test
+	@DisplayName("digitalFimCreation Test: Successfully Created")
+	void digitalFimCreationTest_Success() {
+		digitalFilm = new DigitalFilm(1, "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		assertNotNull(digitalFilm);
+	}
+	
+	@Test
+	@DisplayName("calculateRunningTime Test: Success")
+	void calculateRunningTimeTest_Success() {
+		digitalFilm = new DigitalFilm(1, "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		assertEquals(new BigDecimal(600), digitalFilm.runningTime());
+	}
+
+}

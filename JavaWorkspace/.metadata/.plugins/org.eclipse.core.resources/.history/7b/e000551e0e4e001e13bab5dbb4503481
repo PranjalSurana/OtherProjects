@@ -1,0 +1,16 @@
+package com.fidelity.payrol.src;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class Consultant {
+	
+	private BigDecimal contractAmount;
+	private int contractLengthInMonths;
+	
+	public Consultant(String name, BigDecimal contractAmount, int , LocalDate hireDate) {
+		super(name, hireDate);
+		this.salary = salary;
+	}
+
+}

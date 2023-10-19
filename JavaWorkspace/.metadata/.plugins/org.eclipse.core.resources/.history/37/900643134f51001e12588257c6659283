@@ -1,0 +1,24 @@
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class DigitalFilm extends Film {
+
+	private BigDecimal runningTimeInHours;
+
+	public DigitalFilm(int filmId, String filmTitle, LocalDateTime timeStamp, BigDecimal runningTime) {
+		super(filmId, filmTitle, timeStamp);
+		this.runningTime = runningTime.setScale(2);
+	}
+
+	@Override
+	public BigDecimal runningTime() {
+		return runningTime;
+	}
+
+	@Override
+	public int capacityOfFilm() {
+		return 0;
+	}
+
+}

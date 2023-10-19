@@ -1,0 +1,7 @@
+package com.fidelity.incomecalculator;
+
+public interface IncomeCa {
+	
+	public double getActualPay(int hoursWorkedPerDay, double hourlyPay, int unpaidHolidays);
+
+}

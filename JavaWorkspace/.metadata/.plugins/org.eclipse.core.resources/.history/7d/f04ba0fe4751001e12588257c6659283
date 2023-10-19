@@ -1,0 +1,10 @@
+import java.time.LocalDate;
+
+public class PhysicalFilm extends Film {
+
+	public PhysicalFilm(int filmId, String filmTitle, LocalDate timeStamp) {
+		super(filmId, filmTitle, timeStamp);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

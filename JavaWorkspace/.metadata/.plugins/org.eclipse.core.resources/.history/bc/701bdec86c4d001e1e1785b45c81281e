@@ -1,0 +1,36 @@
+package com.fidelity.payrol;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import java.math.BigDecimal;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class EmployeeTest {
+	
+	private Employee e;
+	
+	@BeforeEach
+	void setUp() {
+        e = new Employee("Jane Doe");
+	}
+
+	@Test
+	void testCalculateMonthlyPay() {
+		int comparisonResult = new BigDecimal(0.0).compareTo(e.calculateMonthlyPay());
+        assertEquals(0), , 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus1() {
+        assertEquals(0.0, e.calculateMonthlyPay(0.0), 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus2() {
+        assertEquals(10.0, e.calculateMonthlyPay(10.0), 0.001);
+	}
+	
+}

@@ -1,0 +1,37 @@
+package com.fidelity.payroll;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+/*
+ * These tests are a bit of a nonsense since it makes no sense to create an Employee
+ * that is not a PartTimeEmployee nor a FullTimeEmployee. However, we haven't yet
+ * addressed that particular detail, so for now we need these tests.
+ */
+class EmployeeTest {
+	
+	private Employee e;
+	
+	@BeforeEach
+	void setUp() {
+        e = new Employee("Jane Doe");
+	}
+
+	@Test
+	void testCalculateMonthlyPay() {
+        assertEquals(0.0, e.calculateMonthlyPay(), 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus1() {
+        assertEquals(0.0, e.calculateMonthlyPay(0.0), 0.001);
+	}
+	
+	@Test
+	void testCalculateMonthlyPayBonus2() {
+        assertEquals(10.0, e.calculateMonthlyPay(10.0), 0.001);
+	}
+	
+}

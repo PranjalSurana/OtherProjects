@@ -1,0 +1,12 @@
+
+public class Check {
+
+	String accHolderName;
+	int checkAmount;
+	
+	Check(String accHolderName, checkAmount) {
+		accHolderName = this.accHolderName;
+		
+	}
+	
+}

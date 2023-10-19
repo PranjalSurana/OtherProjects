@@ -1,0 +1,49 @@
+package com.fidelity.payrol;
+
+import java.math.BigDecimal;
+
+public class FullTimeEmployee extends Employee {
+
+	private BigDecimal salary;
+
+	public FullTimeEmployee(String name, BigDecimal salary) {
+		super(name);
+		this.salary = salary;
+	}
+
+	@Override
+	public BigDecimal calculateMonthlyPay() {
+		return salary.divide(new BigDecimal(12.0));
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = salary.longValue();
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FullTimeEmployee other = (FullTimeEmployee) obj;
+		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "FullTimeEmployee [salary=" + salary + ", toString()=" + super.toString() + "]";
+	}
+	
+	
+}

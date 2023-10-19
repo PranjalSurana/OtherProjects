@@ -1,0 +1,16 @@
+package com.fidelity.incomecalculator;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class IncomeCalculatorTest {
+
+	@Test
+	void test() {
+		IncomeCalculator incomeCalculator = new IncomeCalculator();
+		double pay = incomeCalculator.getActualPay(5, 10.0, 0);
+		assertEquals
+	}
+
+}

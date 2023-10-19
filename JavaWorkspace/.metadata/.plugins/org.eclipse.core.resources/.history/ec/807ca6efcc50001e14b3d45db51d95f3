@@ -1,0 +1,23 @@
+package com.fidelity.hackathon.freight;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class Officer extends CrewMember {
+	
+	private String rank;
+	private BigDecimal monthlySalary;
+
+	public Officer(int id, String name, int payDay, String rank, BigDecimal monthlySalary) {
+		super(id, name, payDay);
+		this.rank = this.rank;
+		this.monthlySalary = th
+	}
+
+	@Override
+	public BigDecimal calcPay(LocalDate currDay) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

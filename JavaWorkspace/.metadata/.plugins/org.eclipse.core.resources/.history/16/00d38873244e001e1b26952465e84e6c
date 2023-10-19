@@ -1,0 +1,65 @@
+package com.fidelity.payroll;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class EmployeeUtilTest {
+
+	private List<Employee> emps;
+	Employee ft;
+	Employee pt;
+	Employee con;
+	
+	@BeforeEach
+	void setUp() {
+		emps = new ArrayList<>();
+		ft = new FullTimeEmployee("John Smith", LocalDate.of(2018, 8, 18), new BigDecimal("10000.0"));
+		pt = new PartTimeEmployee("Captain Jack", LocalDate.of(2019, 1, 1), new BigDecimal("10.0"), 100);
+		con = new Consultant("Rose Tyler", LocalDate.of(2018, 7, 11), new BigDecimal("8000.0"), 10);
+		emps.add(ft);
+		emps.add(pt);
+		emps.add(con);
+	}
+
+	@Test
+	void testTotalSalary1() {
+		assertEquals(new BigDecimal("2633.33"), EmployeeUtil.totalMonthlyPayForAllEmployees(emps));
+	}
+
+	@Test
+	void testTotalSalary2() {
+		emps.add(new FullTimeEmployee("Amy Pond", LocalDate.of(2019, 1, 20), new BigDecimal("12000.0")));
+		assertEquals(new BigDecimal("3633.33"), EmployeeUtil.totalMonthlyPayForAllEmployees(emps));
+	}
+	
+	@Test
+	void testSort() {
+		EmployeeUtil.sort(emps);
+		assertEquals(pt, emps.get(0));
+		assertEquals(ft, emps.get(1));
+		assertEquals(con, emps.get(2));
+	}
+
+	@Test
+	void testSortWithSingleAssertion() {
+		List<Employee> expected = new ArrayList<>();
+		expected.add(pt);
+		expected.add(ft);
+		expected.add(con);
+		EmployeeUtil.sort(emps);
+		assertIterableEquals(expected, emps);
+	}
+
+	@Test
+	void testTotalSalaryNull() {
+		assertEquals(new BigDecimal("0.00"), EmployeeUtil.totalMonthlyPayForAllEmployees(null));
+	}
+
+}

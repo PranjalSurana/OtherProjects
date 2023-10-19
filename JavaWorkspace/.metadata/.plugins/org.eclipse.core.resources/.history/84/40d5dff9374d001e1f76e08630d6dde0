@@ -1,0 +1,5 @@
+package com.fidelity.incomecalculator;
+
+public interface Income {
+
+}

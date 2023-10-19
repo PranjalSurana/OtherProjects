@@ -1,0 +1,9 @@
+package com.fidelity.hackathon.freight;
+
+public class Sailor extends CrewMember {
+	
+	private String jobDescription;
+	private BigDecimal horlyRate;
+	private int hoursWorked;
+
+}

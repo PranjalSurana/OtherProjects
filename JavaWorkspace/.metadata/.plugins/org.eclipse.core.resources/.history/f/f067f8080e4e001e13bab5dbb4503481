@@ -1,0 +1,9 @@
+package com.fidelity.payrol.src;
+
+import java.math.BigDecimal;
+
+public class Consultant {
+	
+	private BigDecimal contractAmount;
+
+}

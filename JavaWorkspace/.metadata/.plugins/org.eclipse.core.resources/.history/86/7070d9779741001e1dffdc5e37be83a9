@@ -1,0 +1,8 @@
+
+public interface Account {
+
+	void deposit(int amount);
+
+	Object getBalance(int amount);
+
+}

@@ -1,0 +1,39 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class SavingsAccountTest {
+
+	private GicAccount gicAccountTest;
+
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_GreaterValue() {
+		gicAccountTest = new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		BigDecimal currBalance = gicAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("8300"), currBalance);
+	}
+	
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_LessValue() {
+		gicAccountTest = new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		BigDecimal currBalance = gicAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("10300"), currBalance);
+	}
+	
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_CurrentDayAfterStartDate() {
+		gicAccountTest = new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		BigDecimal currBalance = gicAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("100"), currBalance);
+	}
+
+}

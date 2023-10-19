@@ -1,0 +1,19 @@
+package com.fidelity.payroll;
+
+public class PartTimeEmployee extends Employee {
+
+	private double hourlyRate;
+	private int hoursForMonth;
+	
+	public PartTimeEmployee(String name, double hourlyRate, int hoursForMonth) {
+		super(name);
+		this.hourlyRate = hourlyRate;
+		this.hoursForMonth = hoursForMonth;
+	}
+
+	@Override
+	public double calculateMonthlyPay() {
+		return hoursForMonth * hourlyRate;
+	}
+	
+}

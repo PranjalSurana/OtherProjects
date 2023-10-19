@@ -1,0 +1,20 @@
+
+public class CheckingAccount implements Account {
+	
+	private int balance;
+
+	@Override
+	public void deposit(int amount) {
+
+		if(amount > 0)
+			balance += amount;
+		
+	}
+
+	@Override
+	public Object getBalance(int amount) {
+		// TODO Auto-generated method stub
+		return balance;
+	}
+
+}

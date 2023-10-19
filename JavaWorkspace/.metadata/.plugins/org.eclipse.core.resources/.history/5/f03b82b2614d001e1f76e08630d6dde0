@@ -1,0 +1,48 @@
+package com.fidelity.payroll;
+
+public class PartTimeEmployee {
+
+	private String name;
+	private double hourlyRate;
+	private int hoursForMonth;
+	
+	public PartTimeEmployee(String name, double hourlyRate, int hoursForMonth) {
+		super();
+		this.name = name;
+		this.hourlyRate = hourlyRate;
+		this.hoursForMonth = hoursForMonth;
+	}
+
+	public double calculateMonthlyPay() {
+		return hoursForMonth * hourlyRate;
+	}
+
+	public double calculateMonthlyPay(double bonus) {
+		return calculateMonthlyPay() + bonus;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getHourlyRate() {
+		return hourlyRate;
+	}
+
+	public void setHourlyRate(double hourlyRate) {
+		this.hourlyRate = hourlyRate;
+	}
+
+	public int getHoursForMonth() {
+		return hoursForMonth;
+	}
+
+	public void setHoursForMonth(int hoursForMonth) {
+		this.hoursForMonth = hoursForMonth;
+	}
+	
+}

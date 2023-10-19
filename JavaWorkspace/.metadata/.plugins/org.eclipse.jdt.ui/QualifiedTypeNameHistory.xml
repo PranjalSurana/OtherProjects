@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.time.Period"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.math.BigInteger"/>
+    <fullyQualifiedTypeName name="com.fidelity.payroll.Employee"/>
+    <fullyQualifiedTypeName name="com.fidelity.payroll.FullTimeEmployee"/>
+    <fullyQualifiedTypeName name="com.fidelity.payroll.PartTimeEmployee"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.AfterEach"/>
+    <fullyQualifiedTypeName name="com.fidelity.payroll.services.PayrollService"/>
+    <fullyQualifiedTypeName name="com.fidelity.hackathon.freight.Sailor"/>
+    <fullyQualifiedTypeName name="com.fidelity.hackathon.freight.Officer"/>
+    <fullyQualifiedTypeName name="com.fidelity.hackathon.freight.FreightShip"/>
+    <fullyQualifiedTypeName name="main.Officer"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.math.RoundingMode"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.time.Month"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,217 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class FilmArchiveTest {
+
+	private FilmArchive filmArchive;
+	private List<Film> film;
+	
+	@BeforeEach
+	void setUp() {
+		film = new ArrayList<>();
+		film.add(new DigitalFilm("1", "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600)));
+		film.add(new PhysicalFilm("2", "physicalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), 5, new BigDecimal("20")));
+		filmArchive = new FilmArchive(100, film);
+	}
+	
+	@Test
+	@DisplayName("Film Archive Creation Successfull")
+	void createNewFilmArchiveTest_Success() {
+		film = new ArrayList<>();
+		film.add(new DigitalFilm("1", "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600)));
+		filmArchive = new FilmArchive(100, film);
+		assertEquals(1, filmArchive.numberOfFilmsInArchive());
+	}
+	
+	@Test
+	@DisplayName("Film Archive Creation Unsuccessfull: Incorrect maxStorageCapacity")
+	void createNewFilmArchiveTest_Failure_IncorrectMaxStorageCapacity() {
+		film = new ArrayList<>();
+		film.add(new DigitalFilm("1", "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600)));
+		assertThrows(IllegalArgumentException.class, () -> {
+			new FilmArchive(-1, film);
+		});
+	}
+	
+	@Test
+	@DisplayName("Film Archive Creation Unsuccessfull: maxStorageCapacity is Zero")
+	void createNewFilmArchiveTest_Failure_ZeroMaxStorageCapacity() {
+		film = new ArrayList<>();
+		film.add(new DigitalFilm("1", "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600)));
+		assertThrows(IllegalArgumentException.class, () -> {
+			new FilmArchive(0, film);
+		});
+	}
+	
+	@Test
+	@DisplayName("retrieveAllFilms Test: Success")
+	void retrieveAllFilmsTest_Success() {
+		assertEquals(film, filmArchive.retrieveAllFilms());
+	}
+	
+	@Test
+	@DisplayName("retrieveAllFilms Test: ZeroFilmsPresent")
+	void retrieveAllFilmsTest_ZeroFilmsPresent() {
+		filmArchive = new FilmArchive(100, new ArrayList<Film>());
+		assertEquals(new ArrayList<Film>(), filmArchive.retrieveAllFilms());
+	}
+	
+	@Test
+	@DisplayName("retrieveFilmById Test: Film Successfully Deleted")
+	void retrieveFilmByIdTest_Success() {
+		filmArchive.retrieveFilmById("1");
+		assertEquals(1, film.get(0).getFilmId());
+	}
+	
+	@Test
+	@DisplayName("retrieveFilmById Test: Empty Film Id")
+	void retrieveFilmByIdTest_Failure_EmptyFilmId() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			filmArchive.retrieveFilmById("");
+		});
+	}
+	
+	@Test
+	@DisplayName("retrieveFilmById Test: Null Film Id")
+	void retrieveFilmByIdTest_Failure_NullFilmId() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			filmArchive.retrieveFilmById(null);
+		});
+	}
+	
+	@Test
+	@DisplayName("retrieveFilmById Test: Film Id Doesn't Exist")
+	void retrieveFilmByIdTest_Failure_FilmIdNotExist() {		
+		assertNull(filmArchive.retrieveFilmById("16"));
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Single Film Successfully Added")
+	void addNewFilmTest_Success_SingleFilm() {
+		Film digitalFilm = new DigitalFilm("5", "digitalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		filmArchive.addNewFilm(digitalFilm);
+		assertEquals(3, filmArchive.numberOfFilmsInArchive());
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Multiple Films Successfully Added")
+	void addNewFilmTest_Success_MultipleFilms() {
+		Film digitalFilm1 = new DigitalFilm("5", "digitalFilm5", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		filmArchive.addNewFilm(digitalFilm1);
+		Film digitalFilm2 = new DigitalFilm("6", "digitalFilm6", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		filmArchive.addNewFilm(digitalFilm2);
+		Film digitalFilm3 = new DigitalFilm("7", "digitalFilm7", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), new BigDecimal(600));
+		filmArchive.addNewFilm(digitalFilm3);
+		assertEquals(5, filmArchive.numberOfFilmsInArchive());
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Null Film")
+	void addNewFilmTest_Failure_NullFilm() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			filmArchive.addNewFilm(null);
+		});
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Film Capacity Full!")
+	void addNewFilmTest_Failure_FilmCapacityFull() {
+		Film physicalFilm1 = new PhysicalFilm("3", "physicalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), 95, new BigDecimal("20"));
+		filmArchive.addNewFilm(physicalFilm1);
+		Film physicalFilm2 = new PhysicalFilm("5", "physicalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), 95, new BigDecimal("20"));
+		assertThrows(IllegalStateException.class, () -> {
+			filmArchive.addNewFilm(physicalFilm2);
+		});
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Film Already Exists!")
+	void addNewFilmTest_Failure_FilmAlreadyExists() {
+		Film physicalFilm = new PhysicalFilm("1", "physicalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), 96, new BigDecimal("20"));
+		assertThrows(IllegalStateException.class, () -> {
+			filmArchive.addNewFilm(physicalFilm);
+		});
+	}
+	
+	@Test
+	@DisplayName("addNewFilm Test: Inadequate Film Capacity!")
+	void addNewFilmTest_Failure_InadequateFilmCapacity() {
+		Film physicalFilm = new PhysicalFilm("3", "physicalFilm1", LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30), 100, new BigDecimal("20"));
+		assertThrows(IllegalStateException.class, () -> {
+			filmArchive.addNewFilm(physicalFilm);
+		});
+	}
+	
+	@Test
+	@DisplayName("deleteFilm Test: Film Successfully Deleted")
+	void deleteFilmTest_Success() {
+		filmArchive.deleteFilm("1");  // Digital Film Deleted
+		assertEquals(1, filmArchive.numberOfFilmsInArchive());
+		assertNull(filmArchive.retrieveFilmById(1));
+	}
+
+	@Test
+	@DisplayName("deleteFilm Test: Invalid Film Id")
+	void deleteFilmTest_Failure_InvalidFilmId() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			filmArchive.deleteFilm("");
+		});
+	}
+	
+	@Test
+	@DisplayName("deleteFilm Test: Invalid Film Id")
+	void deleteFilmTest_Failure_InvalidFilmId() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			filmArchive.deleteFilm("");
+		});
+	}
+	
+	@Test
+	@DisplayName("deleteFilm Test: Film Id Doesn't Exist")
+	void deleteFilmTest_Failure_FilmIdNotExist() {
+		assertThrows(IllegalStateException.class, () -> {
+			filmArchive.deleteFilm(4);
+		});
+	}
+	
+	@Test
+	@DisplayName("initialStorageCapacity Test: Success")
+	void initialStorageCapacityTest_Success() {
+		assertEquals(100, filmArchive.initialStorageCapacity());
+	}
+	
+	@Test
+	@DisplayName("numberOfFilmsInArchive Test: Success")
+	void numberOfFilmsInArchiveTest_Success() {
+		assertEquals(2, filmArchive.numberOfFilmsInArchive());
+	}
+	
+	@Test
+	@DisplayName("remainingStorageCapacity Test: Success")
+	void remainingStorageCapacity_Success() {
+		assertEquals(95, filmArchive.remainingStorageCapacity());
+	}
+	
+	@Test
+	@DisplayName("totalRunningTime Test")
+	void totalRunningTimeTest() {
+		assertEquals(new BigDecimal("700.00"), filmArchive.totalRunningTime());
+	}
+	
+	@Test
+	@DisplayName("totalRunningTime Test With Zero Movies")
+	void totalRunningTimeTest_ZeroMovies() {
+		filmArchive = new FilmArchive(100, new ArrayList<Film>());
+		assertEquals(new BigDecimal("0.00"), filmArchive.totalRunningTime());
+	}	
+
+}

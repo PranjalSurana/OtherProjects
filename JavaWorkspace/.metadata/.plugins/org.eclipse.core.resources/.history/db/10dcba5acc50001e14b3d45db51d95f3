@@ -1,0 +1,16 @@
+package com.fidelity.hackathon.freight;
+
+import java.math.BigDecimal;
+
+public class Sailor extends CrewMember {
+	
+	private String jobDescription;
+	private BigDecimal horlyRate;
+	private int hoursWorked;
+
+	public Sailor(int id, String name, int payDay, String jobDescription, BigDecimal hourlyRate,) {
+		super(id, name, payDay);
+		// TODO Auto-generated constructor stub
+	}
+
+}

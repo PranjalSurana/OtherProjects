@@ -1,0 +1,64 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class AccountPortalTest {
+	
+	private AccountPortal accountPortal;
+	private List<Account> portfolioTest;
+	
+	@BeforeEach
+	void setUp() {
+		portfolioTest = new ArrayList<>();
+		portfolioTest.add(new Account("acc1", new BigDecimal(12000)));
+		portfolioTest.add(new Account("acc2", new BigDecimal(1600)));
+		accountPortal = new AccountPortal(3, portfolioTest);
+	}
+	
+
+	@Test
+	@DisplayName("getAccount Test: Account Exists")
+	void getAccountTest_Success() {
+		assertTrue(accountPortal.getAccount("acc1") != null);
+	}
+	
+	@Test
+	@DisplayName("getAccount Test: Account Doesn't Exist")
+	void getAccountTest_Failure() {
+		assertTrue(accountPortal.getAccount("acc5") == null);
+	}
+	
+	@Test
+	@DisplayName("getMaximumNumberOfAccounts Test")
+	void getMaximumNumberOfAccountsTest_Success() {
+		assertEquals(2, accountPortal.getMaximumNumberOfAccounts());
+	}
+	
+	@Test
+	@DisplayName("getRemainingSpaceForAccounts Test")
+	void getRemainingSpaceForAccountsTest_Success() {
+		assertEquals(1, accountPortal.getRemainingSpaceForAccounts());
+	}
+	
+	@Test
+	@DisplayName("removeAccounts Test: Successfully Deleted Account")
+	void removeAccountsTest_Success() {
+		assertTrue(accountPortal.removeAccounts("a123"); == null);
+	}
+	
+	@Test
+	@DisplayName("removeAccounts Test: Account doesn't exist")
+	void removeAccountstes_Failure() {
+		accountPortal.removeAccounts("a223");
+		assertTrue(accountPortal.getAccount("a223") == null);
+	}
+
+}

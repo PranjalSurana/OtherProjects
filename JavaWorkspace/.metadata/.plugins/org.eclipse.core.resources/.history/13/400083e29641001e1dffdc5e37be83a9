@@ -1,0 +1,7 @@
+
+public interface Account {
+	
+	@Override
+	void deposit(int amount);
+
+}

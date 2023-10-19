@@ -1,0 +1,53 @@
+
+public class CheckingAccount implements Account {
+	
+	private String accHolderName;
+	private int balance;
+
+	
+	CheckingAccount(String accHolderName) {
+		accHolderName = this.accHolderName;
+	}
+	
+	@Override
+	public void deposit(int amount) {
+
+		if(amount > 0)
+			balance += amount;
+		
+	}
+
+	@Override
+	public int getBalance() {
+		return balance;
+	}
+
+	@Override
+	public void withdraw(int amount) {
+
+		if(amount > 0 && amount <= balance)
+			balance -= amount;
+		else if (amount > balance) {
+		}
+		else {
+		}
+			
+	}
+
+	@Override
+	public boolean processCheck(Check check) {
+		
+		if(check.accHolderName != accHolderName) {
+			System.out.println("gjjfjg");
+			return false;
+		}
+		else if (check.checkAmount > balance) {		
+			return false;
+		}
+		else {
+			balance -= check.checkAmount;
+			return true;
+		
+	}
+
+}

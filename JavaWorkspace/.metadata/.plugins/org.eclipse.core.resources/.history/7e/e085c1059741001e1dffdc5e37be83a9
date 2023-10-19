@@ -1,0 +1,14 @@
+
+public class CheckingAccount implements Account {
+	
+	private int balance;
+
+	@Override
+	public void deposit(int amount) {
+
+		if(balance < 0)
+			bala
+		
+	}
+
+}

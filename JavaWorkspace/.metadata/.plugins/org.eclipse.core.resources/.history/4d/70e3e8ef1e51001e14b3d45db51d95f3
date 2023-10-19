@@ -1,0 +1,132 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+
+import com.fidelity.utils.Account;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class AccountPortalTest {
+	
+	private AccountPortal accountPortal;
+	private List<Account> portfolioTest;
+	
+	@BeforeEach
+	void setUp() {
+		portfolioTest = new ArrayList<>();
+		
+		// Instead of just Account, types of Account must be used
+		portfolioTest.add(new DebitAccount("acc1", new BigDecimal(12000), new BigDecimal(2600)));
+		portfolioTest.add(new GicAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1), 6, new BigDecimal(2900)));
+		portfolioTest.add(new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		accountPortal = new AccountPortal(3, portfolioTest);
+	}
+	
+	@Test
+	@DisplayName("addAccount Test: Account Successfully Added!")
+	void addAccountTest_Success() {
+		Account newAccount = new Account("test", new BigDecimal(13000));
+		accountPortal.addAccount(newAccount);
+		assertEquals(3, portfolioTest.size());
+	}
+	
+	@Test
+	@DisplayName("addAccount Test: Account Limit Exceeded")
+	void addAccountTest_Failure_LimitExceeded() {
+		List<Account> portfolioTestforAddAccount = new ArrayList<>();
+		AccountPortal accountPortalTestforAddAccount = new AccountPortal(1, portfolioTestforAddAccount);
+		Account newAccount1 = new Account("test1", new BigDecimal(13000));
+		accountPortalTestforAddAccount.addAccount(newAccount1);
+		Account newAccount2 = new Account("test2", new BigDecimal(4000));
+		assertThrows(IllegalStateException.class, () -> {
+			accountPortalTestforAddAccount.addAccount(newAccount2);
+		});
+	}
+	
+	@Test
+	@DisplayName("addAccount Test: Account Null")
+	void addAccountTest_Failure_NullAccount() {
+		assertThrows(IllegalStateException.class, () -> {
+			accountPortal.addAccount(null);
+		});
+	}
+	
+	@Test
+	@DisplayName("getAccount Test: Account Exists")
+	void getAccountTest_Success() {
+		assertTrue(accountPortal.getAccount("acc1") != null);
+	}
+	
+	@Test
+	@DisplayName("getAccount Test: Account Doesn't Exist")
+	void getAccountTest_Failure_DoesntExist() {
+		assertTrue(accountPortal.getAccount("acc5") == null);
+	}
+	
+	@Test
+	@DisplayName("getAccount Test: Account Number Null")
+	void getAccountTest_Failure_NullAccount() {
+		assertThrows(IllegalStateException.class, () -> {
+			accountPortal.getAccount(null);
+		});
+	}
+	
+	@Test
+	@DisplayName("getAccount Test: Account Number Empty")
+	void getAccountTest_Failure_EmptyStringAccount() {
+		assertThrows(IllegalStateException.class, () -> {
+			accountPortal.getAccount("");
+		});
+	}	
+	
+	@Test
+	@DisplayName("getPortfolio Test: Success")
+	void getPortfolioTest_Success() {
+		assertEquals(2, accountPortal.getMaximumNumberOfAccounts());
+	}
+	
+	
+	@Test
+	@DisplayName("getMaximumNumberOfAccounts Test")
+	void getMaximumNumberOfAccountsTest_Success() {
+		assertEquals(2, accountPortal.getMaximumNumberOfAccounts());
+	}
+	
+	@Test
+	@DisplayName("getRemainingSpaceForAccounts Test")
+	void getRemainingSpaceForAccountsTest_Success() {
+		assertEquals(1, accountPortal.getRemainingSpaceForAccounts());
+	}
+	
+	@Test
+	@DisplayName("removeAccount Test: Account Present")
+	void removeAccountTest_Success_AccountPresent() {		
+		accountPortal.removeAccount("acc1");
+		assertEquals(1, portfolioTest.size());
+	}
+	
+	@Test
+	@DisplayName("removeAccount Test: Account Not Present")
+	void removeAccountTest_Failure_AccountNotPresent() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			accountPortal.removeAccount("demo");			
+		});
+	}
+
+	@Test
+	@DisplayName("removeAccount Test: Null Account")
+	void removeAccountTest_Failure_NullAccount() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			accountPortal.removeAccount(null);			
+		});
+	}
+	
+
+}

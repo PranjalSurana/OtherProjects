@@ -1,0 +1,10 @@
+package com.fidelity.rating;
+
+public enum EsrbRating {
+	EVERYONE("Everyone"),
+	EVERYONE_10_PLUS("Everyone 10+)";
+	public static final String TEEN = "Teen";
+	public static final String MATURE = "Mature";
+	public static final String ADULTS_ONLY = "Adults Only";
+	public static final String RATING_PENDING = "Rating Pending";
+}

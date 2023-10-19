@@ -1,0 +1,52 @@
+package com.fidelity.hackathon.freight;
+
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+
+import com.fidelity.utils.AccountPortal;
+import com.fidelity.utils.DebitAccount;
+import com.fidelity.utils.GicAccount;
+import com.fidelity.utils.SavingsAccount;
+
+public class FreightShipTest {
+	
+	private FreightShip frieghtShip;
+	private List<CrewMember> crewTest;
+	private CrewMember sailor;
+	private CrewMember officer;
+	
+	@BeforeEach
+	void setUp() {
+		crewTest = new ArrayList<>();
+		sailor = 
+		officer = new Officer(2, "officer", 10, "DGP", new BigDecimal("10000"));
+		crewTest.add(new Sailor(1, "sailor", 10, "Engineer", new BigDecimal("100"), 100));
+		crewTest.add(officer);
+		System.out.println(crewTest);
+		frieghtShip = new FreightShip(3, crewTest);
+	}
+	
+//	@AfterEach
+//	void tearDown() throws Exception {
+//		frieghtShipTest = null;
+//	}
+
+	@Test
+	@DisplayName("addCrewMember Test: Member Added Successfully")
+	public void addCrewMemberTest_Success() {
+		System.out.println("kdcscddss");
+		CrewMember mockSailor = new Sailor(2, "sailor", 10, "Engineer", new BigDecimal("100"), 100);
+		System.out.println("kasddsdcs");
+		frieghtShip.addCrewMember(mockSailor);
+		assertEquals(3, crewTest.size());
+	}
+
+}

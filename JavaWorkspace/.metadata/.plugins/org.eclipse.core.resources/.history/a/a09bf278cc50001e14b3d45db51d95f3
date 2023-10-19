@@ -1,0 +1,18 @@
+package com.fidelity.hackathon.freight;
+
+import java.math.BigDecimal;
+
+public class Sailor extends CrewMember {
+	
+	private String jobDescription;
+	private BigDecimal hourlyRate;
+	private int hoursWorked;
+
+	public Sailor(int id, String name, int payDay, String jobDescription, BigDecimal hourlyRate, int hoursWorked) {
+		super(id, name, payDay);
+		this.jobDescription = this.jobDescription;
+		this.horlyRate = this.horlyRate;
+		this.
+	}
+
+}

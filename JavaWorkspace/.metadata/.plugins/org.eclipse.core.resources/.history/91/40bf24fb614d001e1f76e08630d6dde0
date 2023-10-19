@@ -1,0 +1,18 @@
+package com.fidelity.payroll;
+
+public class FullTimeEmployee extends Employee {
+
+	private double salary;
+
+	public FullTimeEmployee(String name, double salary) {
+		super(name);
+		this.salary = salary;
+	}
+
+	@Override
+	public double calculateMonthlyPay() {
+		return salary / 12.0;
+	}
+	
+	
+}

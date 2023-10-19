@@ -1,0 +1,43 @@
+package com.fidelity.payrol;
+
+import java.util.Objects;
+
+public class PartTimeEmployee extends Employee {
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	private double hourlyRate;
+	private int hoursForMonth;
+	
+	public PartTimeEmployee(String name, double hourlyRate, int hoursForMonth) {
+		super(name);
+		this.hourlyRate = hourlyRate;
+		this.hoursForMonth = hoursForMonth;
+	}
+
+	@Override
+	public double calculateMonthlyPay() {
+		return hoursForMonth * hourlyRate;
+	}
+	
+}

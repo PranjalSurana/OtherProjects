@@ -1,0 +1,11 @@
+package com.fidelity.hackathon.freight;
+
+public abstract class CrewMember {
+	
+	private String name;
+	private int id;
+	private int payDay;
+	
+	public CrewMember()
+
+}

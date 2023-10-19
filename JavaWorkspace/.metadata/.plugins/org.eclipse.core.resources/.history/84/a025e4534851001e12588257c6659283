@@ -1,0 +1,16 @@
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class DigitalFilm extends Film {
+
+	public DigitalFilm(int filmId, String filmTitle, LocalDate timeStamp) {
+		super(filmId, filmTitle, timeStamp);
+	}
+
+	@Override
+	public BigDecimal runningTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

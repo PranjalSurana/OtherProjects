@@ -1,0 +1,14 @@
+package com.fidelity.payrol.src;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class ConsultantTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,23 @@
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public abstract class Film {
+	
+	private int filmId;
+	private String filmTitle;
+	private LocalDate timeStamp;
+	
+	public Film(int filmId, String filmTitle, LocalDateTime timeStamp) {
+		this.filmId = filmId;
+		this.filmTitle = filmTitle;
+		this.timeStamp = timeStamp;
+	}
+	
+	public abstract BigDecimal runningTime();
+
+	public int getFilmId() {
+		return filmId;
+	}
+
+}

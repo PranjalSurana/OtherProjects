@@ -1,0 +1,49 @@
+package com.fidelity.payrol.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.fidelity.payrol.src.Consultant;
+
+class ConsultantTest {
+	
+	private Consultant consultantTest;
+
+	@Test
+	void testConsultantCalculateMonthlyPay1() {
+        consultantTest = new Consultant("Jane Doe", new BigDecimal(1000), 20, LocalDate.parse("2018-11-01"));
+		int comparisonResult = new BigDecimal(50.00).compareTo(consultantTest.calculateMonthlyPay());
+        assertEquals(0, comparisonResult, 0.01);
+	}
+	
+	@Test
+	void testConsultantCalculateMonthlyPay2() {
+        consultantTest = new Consultant("Jane Doe", new BigDecimal(1000), 20, LocalDate.parse("2018-11-01"));
+		int comparisonResult = new BigDecimal(2000.00).compareTo(consultantTest.calculateMonthlyPay());
+        assertEquals(0, comparisonResult, 0.01);
+	}	
+	
+	@Test
+	void testConsultantCalculateMonthlyPay3() {
+		int comparisonResult = new BigDecimal(4000.00).compareTo(consultantTest.calculateMonthlyPay());
+        assertEquals(0, comparisonResult, 0.01);
+	}
+
+	@Test
+	void testConsultantCalculateMonthlyPayBonus1() {
+		int comparisonResult = new BigDecimal(1000.00).compareTo(consultantTest.calculateMonthlyPay(new BigDecimal(0.0)));
+        assertEquals(0, comparisonResult, 0.01);
+	}
+	
+	@Test
+	void testConsultantCalculateMonthlyPayBonus2() {
+		int comparisonResult = new BigDecimal(1010.00).compareTo(consultantTest.calculateMonthlyPay(new BigDecimal(10.0)));
+        assertEquals(0, comparisonResult, 0.01);
+	}
+	
+}

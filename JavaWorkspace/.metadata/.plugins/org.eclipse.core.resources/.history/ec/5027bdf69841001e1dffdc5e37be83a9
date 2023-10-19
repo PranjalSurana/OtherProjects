@@ -1,0 +1,28 @@
+
+public class CheckingAccount implements Account {
+	
+	private int balance;
+
+	@Override
+	public void deposit(int amount) {
+
+		if(amount > 0)
+			balance += amount;
+		
+	}
+
+	@Override
+	public int getBalance() {
+		return balance;
+	}
+
+	@Override
+	public void withdraw(int amount) {
+
+		if(amount > 0)
+			balance += amount;
+		else if (amount > balance) 
+			return balance
+	}
+
+}

@@ -1,0 +1,43 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+
+import com.fidelity.utils.Account;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class AccountPortalTest {
+	
+	private AccountPortal accountPortal;
+	private List<Account> portfolioTest;
+	
+	@BeforeEach
+	void setUp() {
+		portfolioTest = new ArrayList<>();
+
+		System.out.println("kdcs");
+		// Instead of just Account, types of Account must be used
+		portfolioTest.add(new DebitAccount("acc1", new BigDecimal(12000), new BigDecimal(2600)));
+		portfolioTest.add(new GicAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1), 6, new BigDecimal(2900)));
+		portfolioTest.add(new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		accountPortal = new AccountPortal(4, portfolioTest);
+	}
+	
+	@Test
+	@DisplayName("addAccount Test: Account Successfully Added!")
+	void addAccountTest_Success() {
+		Account newAccount = new DebitAccount("acc6", new BigDecimal(12000), new BigDecimal(900));
+		accountPortal.addAccount(newAccount);
+		assertEquals(4, portfolioTest.size());
+	}
+	
+	
+
+}

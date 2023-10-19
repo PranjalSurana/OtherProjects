@@ -1,0 +1,27 @@
+package com.fidelity.rating;
+
+public class VideoGame {
+	// TODO: note the constant String fields defined for ratings
+
+	// TODO: note the rating is defined as a String
+	private final EsrbRating rating;
+	private final String title;
+
+	// TODO: note the constructor's rating argument is a String
+	public VideoGame(String title, EsrbRating rating) {
+		this.title = title;
+		this.rating = rating;
+	}
+
+	public EsrbRating getRating() {
+		return this.rating;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public String toString() {
+		return title + ", rated " + rating;
+	}
+}

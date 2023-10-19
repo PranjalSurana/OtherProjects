@@ -1,0 +1,47 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class AccountTest {
+
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+	
+	static Account account = new CheckingAccount();
+	
+	@Test
+	void canCreateAcountWithNoArgsConstructor() {
+		
+		// Arrange
+		
+		
+		// Act
+		
+		
+		// Assert
+		assertNotNull(account);
+		
+	}
+	
+	@Test
+	void depositCannotTakeNegativeAmount() {
+		
+		// Arrange
+		int amount = -100;
+		
+		// Act
+		account.deposit(amount);
+		
+		// Assert
+		assertEquals(account.getBalance(), 0);
+		
+	}
+	
+	@Test()
+	void withdrawCannotBe
+		
+	}
+
+}

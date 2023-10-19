@@ -1,0 +1,29 @@
+import java.time.LocalDate;
+
+public class PhysicalFilm extends Film {
+
+	public PhysicalFilm(int filmId, String filmTitle, LocalDate timeStamp) {
+		super(filmId, filmTitle, timeStamp);
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+
+
+
+private int numberOfReels;
+private BigDecimal lengthOfReel;
+
+public PhysicalFilm(long id, String title, LocalDate dateAdded, 
+		            BigDecimal lengthOfReel, int numberOfReels) {
+	super(id, title, dateAdded);
+	this.lengthOfReel = lengthOfReel.setScale(2);
+	this.numberOfReels = numberOfReels;
+}
+
+@Override
+public BigDecimal calculateRunningTime() {
+	BigDecimal numReels = new BigDecimal(numberOfReels);
+
+	return lengthOfReel.multiply(numReels).setScale(2);
+}

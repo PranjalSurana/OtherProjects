@@ -1,0 +1,54 @@
+package com.fidelity.payrol;
+
+import java.math.BigDecimal;
+
+public class PartTimeEmployee extends Employee {
+
+	private BigDecimal hourlyRate;
+	private int hoursForMonth;
+	
+	public PartTimeEmployee(String name, double hourlyRate, int hoursForMonth) {
+		super(name);
+		this.hourlyRate = hourlyRate;
+		this.hoursForMonth = hoursForMonth;
+	}
+
+	@Override
+	public double calculateMonthlyPay() {
+		return hoursForMonth * hourlyRate;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(hourlyRate);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + hoursForMonth;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PartTimeEmployee other = (PartTimeEmployee) obj;
+		if (Double.doubleToLongBits(hourlyRate) != Double.doubleToLongBits(other.hourlyRate))
+			return false;
+		if (hoursForMonth != other.hoursForMonth)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "PartTimeEmployee [hourlyRate=" + hourlyRate + ", hoursForMonth=" + hoursForMonth + ", toString()="
+				+ super.toString() + "]";
+	}
+	
+}

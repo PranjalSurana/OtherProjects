@@ -1,0 +1,19 @@
+package com.fidelity.payroll.services;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.fidelity.payroll.Employee;
+
+public class PayrollService {
+	
+	public void sort(List<Employee> emps) {
+		Collections.sort(emps);
+	}
+
+	public void sort(List<Employee> emps, Comparator<Employee> comparator) {
+		Collections.sort(emps, comparator);
+	}
+
+}

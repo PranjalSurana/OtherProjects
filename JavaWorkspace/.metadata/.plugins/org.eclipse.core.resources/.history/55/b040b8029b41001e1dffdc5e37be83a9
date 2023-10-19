@@ -1,0 +1,7 @@
+
+public class Check {
+
+	String accHolderName;
+	String checkAmount
+	
+}

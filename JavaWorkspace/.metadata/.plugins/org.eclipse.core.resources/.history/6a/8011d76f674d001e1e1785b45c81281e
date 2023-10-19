@@ -1,0 +1,43 @@
+package com.fidelity.payrol;
+
+import java.util.Objects;
+
+public class Employee {
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	private String name;
+
+	public Employee(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public double calculateMonthlyPay() {
+		return 0.0;
+	}
+	
+	public double calculateMonthlyPay(double bonus) {
+		return calculateMonthlyPay() + bonus;
+	}
+
+}

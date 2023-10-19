@@ -1,0 +1,27 @@
+package com.fidelity.hackathon.freight;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class Sailor extends CrewMember {
+	
+	private String jobDescription;
+	private BigDecimal hourlyRate;
+	private int hoursWorked;
+
+	public Sailor(int id, String name, int payDay, String jobDescription, BigDecimal hourlyRate, int hoursWorked) {
+		super(id, name, payDay);
+		this.jobDescription = jobDescription;
+		this.hourlyRate = hourlyRate;
+		this.hoursWorked = hoursWorked;
+	}
+
+	@Override
+	public BigDecimal calcPay(LocalDate currDay) {
+		if(currDay.getDayOfMonth() < payDay)
+			return new BigDecimal(0.0);
+//	else
+		return null;
+	}
+
+}

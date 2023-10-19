@@ -1,0 +1,63 @@
+package com.fidelity.hackathon.freight;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+
+public class FreightShip {
+	
+	private int maxCapacity;
+	private List<CrewMember> crew;
+	
+	public FreightShip(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
+		crew = new List<CrewMember>();
+	}
+	
+	public void addCrewMember(CrewMember c) {
+		if(getRemainingCapacity() == 0)
+			throw new IllegalStateException("Crew Limit Exceeded!");
+		if(c == null)
+			throw new IllegalStateException("Crew Member cannot be null");
+		crew.add(c);
+	}
+	
+	public void removeCrewMember(int id) {
+		if(getCrew().size() == 0)
+			throw new IllegalStateException("No Crew Members are present to be deletd");
+		if(id < 0)
+			throw new IllegalStateException("Invalid ID");
+		for(CrewMember c: getCrew()) {
+			if(c.id == id) {
+				getCrew().remove(id);
+			}
+		}
+		throw new IllegalStateException("ID doesn't exist!");
+	}
+	
+	public int getMaxCapacity() {
+		return maxCapacity;
+	}
+	
+	public int getRemainingCapacity() {
+		return maxCapacity - getCrew().size();
+	}
+	
+	public int getCurrentCrewNumber() {
+		return getCrew().size();
+	}
+	
+	public BigDecimal calcTotalPayroll() {
+		BigDecimal total = BigDecimal.valueOf(0);
+		for (CrewMember c : getCrew()) {
+			total = total.add(c.calcPay(LocalDate.now()));
+		}
+		return total;
+	}
+
+	public List<CrewMember> getCrew() {
+		return crew;
+	}
+
+}

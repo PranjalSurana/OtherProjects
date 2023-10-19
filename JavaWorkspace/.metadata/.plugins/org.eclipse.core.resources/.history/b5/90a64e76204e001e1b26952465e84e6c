@@ -1,0 +1,26 @@
+package com.fidelity.payroll;
+
+import java.util.List;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+public class EmployeeUtil {
+
+	private static final BigDecimal ZERO_TWO_DPS = BigDecimal.ZERO.setScale(2);
+	
+	public static void sortByName(Employee[] emps) {
+		Arrays.sort(emps, new EmployeeNameComparator());
+	}
+
+	public static void sortByMonthlyPay(Employee[] emps) {
+		Arrays.sort(emps, new EmployeeMonthlyPayComparator());
+	}
+	
+	public static void totalMonthlyPayForAllEmployees(List<Employee> employees) {
+		BigDecimal total = ZERO_TWO_DPS;
+		for (Employee emp: employees)
+			totalMonthlyTime += emp.calculateMonthlyPay();
+		return totalMonthly
+	}
+
+}

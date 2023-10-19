@@ -1,0 +1,17 @@
+import java.time.LocalDate;
+
+public abstract class Film {
+	
+	private int filmId;
+	private String filmTitle;
+	private LocalDate timeStamp;
+	
+	public Film(int filmId, String filmTitle, LocalDate timeStamp) {
+		this.filmId = filmId;
+		this.filmTitle = filmTitle;
+		this.timeStamp = timeStamp;
+	}
+	
+	public abstract BigDecimal calculateRunningTime();
+
+}

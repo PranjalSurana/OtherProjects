@@ -1,0 +1,20 @@
+package com.fidelity.payroll;
+
+import java.util.List;
+import java.util.Arrays;
+
+public class EmployeeUtil {
+
+	public static void sortByName(Employee[] emps) {
+		Arrays.sort(emps, new EmployeeNameComparator());
+	}
+
+	public static void sortByMonthlyPay(Employee[] emps) {
+		Arrays.sort(emps, new EmployeeMonthlyPayComparator());
+	}
+	
+	public static void totalMonthlyPayForAllEmployees(List<Employee> employees) {
+		BigInteger totalMonthlyTime
+	}
+
+}

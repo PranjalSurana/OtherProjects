@@ -1,0 +1,64 @@
+package com.fidelity.hackathon.freight;
+
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+
+import com.fidelity.utils.AccountPortal;
+import com.fidelity.utils.DebitAccount;
+import com.fidelity.utils.GicAccount;
+import com.fidelity.utils.SavingsAccount;
+
+public class FreightShipTest {
+	
+	private FreightShip frieghtShip;
+	private List<CrewMember> crewTest;
+	private CrewMember sailor;
+	private CrewMember officer;
+
+	@BeforeEach
+	void setUp() {
+		System.out.println("kdcs");
+		crewTest = new ArrayList<>();
+		sailor = new Sailor(1, "sailor", 10, "Engineer", new BigDecimal("100"), 100);
+		officer = new Officer(2, "officer", 10, "DGP", new BigDecimal("10000"));
+		crewTest.add(sailor);
+		crewTest.add(officer);
+		System.out.println(crewTest);
+		frieghtShip = new FreightShip(3, crewTest);
+	}
+	
+	@BeforeEach
+	void setUp() {
+		portfolioTest = new ArrayList<>();
+		
+		// Instead of just Account, types of Account must be used
+		portfolioTest.add(new DebitAccount("acc1", new BigDecimal(12000), new BigDecimal(2600)));
+		portfolioTest.add(new GicAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1), 6, new BigDecimal(2900)));
+		portfolioTest.add(new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1)));
+		accountPortal = new AccountPortal(4, portfolioTest);
+	}
+	
+//	@AfterEach
+//	void tearDown() throws Exception {
+//		frieghtShipTest = null;
+//	}
+
+	@Test
+	@DisplayName("addCrewMember Test: Member Added Successfully")
+	public void addCrewMemberTest_Success() {
+		System.out.println("kdcscddss");
+		CrewMember mockSailor = new Sailor(2, "sailor", 10, "Engineer", new BigDecimal("100"), 100);
+		System.out.println("kasddsdcs");
+		frieghtShip.addCrewMember(mockSailor);
+		assertEquals(3, crewTest.size());
+	}
+
+}

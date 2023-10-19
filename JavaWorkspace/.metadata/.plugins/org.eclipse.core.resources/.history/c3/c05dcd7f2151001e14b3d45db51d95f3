@@ -1,0 +1,30 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class DebitAccountTest {
+	
+	private DebitAccount debitAccountTest;
+
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Balance calculated successfully - Value is greater than Fee")
+	void calculateCurrentBalanceTest_Success_GreaterValue() {
+		debitAccountTest = new DebitAccount("acc1", new BigDecimal(12000), new BigDecimal(2600));
+		BigDecimal currBalance = debitAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("9400"), currBalance);
+	}
+	
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Balance calculated successfully - Value is greater than Fee")
+	void calculateCurrentBalanceTest_Failure_LessValue() {
+		BigDecimal currBalance = debitAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("9400"), currBalance);
+	}
+
+}

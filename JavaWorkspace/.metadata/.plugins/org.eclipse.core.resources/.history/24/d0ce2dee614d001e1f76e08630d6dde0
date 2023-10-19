@@ -1,0 +1,26 @@
+package com.fidelity.payrol;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MyPayrollExercisesTest { 
+
+	private MyPayrollExercises partTimeEmployee;
+	
+	@BeforeEach
+	void setUp() {
+		partTimeEmployee = new MyPayrollExercises("Jane Doe", 10, 100);
+	}
+	@Test
+	void test() {
+		assertNotNull(partTimeEmployee);
+	}
+	
+	@Test
+	void calculateMonthlyPaymentTest() {
+        assertEquals(1000.0, partTimeEmployee.calculateMonthlyPay(), 0.01);
+	}
+
+}

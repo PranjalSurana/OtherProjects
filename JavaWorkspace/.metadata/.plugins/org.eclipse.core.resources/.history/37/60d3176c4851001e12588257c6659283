@@ -1,0 +1,18 @@
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class DigitalFilm extends Film {
+
+	private BigDecimal runningTime;
+
+	public DigitalFilm(int filmId, String filmTitle, LocalDate timeStamp, BigDecimal runningTime) {
+		super(filmId, filmTitle, timeStamp);
+		this.runningTime = runningTime.setSca
+	}
+
+	@Override
+	public BigDecimal runningTime() {
+		return null;
+	}
+
+}

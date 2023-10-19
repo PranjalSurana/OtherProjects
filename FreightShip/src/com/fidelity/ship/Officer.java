@@ -1,0 +1,32 @@
+package com.fidelity.ship;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class Officer extends CrewMember {
+	
+	private String rank;
+	private BigDecimal monthlySalary;
+
+	public Officer(int id, String name, int payDay, String rank, BigDecimal monthlySalary) {
+		super(id, name, payDay);
+		this.rank = rank;
+		this.monthlySalary = monthlySalary;
+	}
+
+	@Override
+	public BigDecimal calcPay(LocalDate currDate) {
+		BigDecimal pay = new BigDecimal("0.00");
+		int currDay = (int)currDate.getDayOfMonth();
+		int days = 0;
+		if(currDay <= payDay) {
+			days = payDay - currDay;
+		}
+		else {
+			days = 30 - payDay + currDay;
+		}
+		pay = BigDecimal.valueOf(days).multiply(monthlySalary);
+		return pay;
+	}
+
+}

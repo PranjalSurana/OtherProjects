@@ -1,0 +1,12 @@
+package com.fidelity.hackathon.freight;
+
+public class Officer extends CrewMember {
+	
+	private String r
+
+	public Officer(int id, String name, int payDay) {
+		super(id, name, payDay);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,21 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class DigitalFilmTest {
+
+	DigitalFilm digitalFilm;
+	
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_GreaterValue() {
+		digitalFilm = new DigitalFilm("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2022, 11, 1), 6, new BigDecimal(2900));
+		BigDecimal currBalance = gicAccountTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("8300"), currBalance);
+	}
+
+}

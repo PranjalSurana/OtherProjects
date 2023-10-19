@@ -1,0 +1,76 @@
+package com.fidelity.payroll;
+
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class EmployeeUtilTest {
+
+	private Employee[] emps;
+	private List<Employee> emplist;
+
+	@BeforeEach
+	void setUp() {
+		emps = new Employee[] {
+			new FullTimeEmployee("John Smith", LocalDate.of(2018, 8, 18), new BigDecimal("120000.0")),
+			new PartTimeEmployee("Captain Jack", LocalDate.of(2019, 1, 1), new BigDecimal("30.0"), 100),
+			new Consultant("Rose Tyler", LocalDate.of(2018, 7, 11), new BigDecimal("150000.0"), 10)
+		};
+
+		emplist = new ArrayList<>();
+		emplist.add(new FullTimeEmployee("John Smith", LocalDate.of(2018, 8, 18), new BigDecimal("10000.0")));
+		emplist.add(new PartTimeEmployee("Captain Jack", LocalDate.of(2019, 1, 1), new BigDecimal("10.0"), 100));
+		emplist.add(new Consultant("Rose Tyler", LocalDate.of(2018, 7, 11), new BigDecimal("8000.0"), 10));		
+	}
+
+	@Test
+	@DisplayName("Sort by employee name successfully")
+	void testSortByName_Succeeds() {
+		Employee[] empsSortedByName = new Employee[] {
+			new PartTimeEmployee("Captain Jack", LocalDate.of(2019, 1, 1), new BigDecimal("30.0"), 100),
+			new FullTimeEmployee("John Smith", LocalDate.of(2018, 8, 18), new BigDecimal("120000.0")),
+			new Consultant("Rose Tyler", LocalDate.of(2018, 7, 11), new BigDecimal("150000.0"), 10)
+		};
+		
+		EmployeeUtil.sortByName(emps);
+
+		assertArrayEquals(empsSortedByName, emps);
+	}
+	
+	@Test
+	@DisplayName("Sort by monthly pay from high to low successfully")
+	void testSortByMonthlyPay_Succeeds() {
+		Employee[] empsSortedByMonthlyPay = new Employee[] {
+			new Consultant("Rose Tyler", LocalDate.of(2018, 7, 11), new BigDecimal("150000.0"), 10),
+			new FullTimeEmployee("John Smith", LocalDate.of(2018, 8, 18), new BigDecimal("120000.0")),
+			new PartTimeEmployee("Captain Jack", LocalDate.of(2019, 1, 1), new BigDecimal("30.0"), 100)
+		};
+		
+		EmployeeUtil.sortByMonthlyPay(emps);
+
+		assertArrayEquals(empsSortedByMonthlyPay, emps);
+	}
+
+	@Test
+	@DisplayName("Test for Total Monthly Pay Success")
+	void test_totalMonthlyPayForAllEmployees_Success() {
+		EmployeeUtil.totalMonthlyPayForAllEmployees(emplist);
+		assertEquals(new BigDecimal("2633.33"), EmployeeUtil.calcTotalMonthlyPay(emps));
+	}
+	
+	@Test
+	void testTotalSalaryNullArg() {
+		BigDecimal totalMonthlyPay = EmployeeUtil.calcTotalMonthlyPay(null);
+
+		assertEquals(new BigDecimal("0.00"), totalMonthlyPay);
+	}
+	
+	
+}

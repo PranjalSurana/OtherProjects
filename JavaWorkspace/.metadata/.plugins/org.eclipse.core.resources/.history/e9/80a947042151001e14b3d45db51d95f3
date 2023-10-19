@@ -1,0 +1,21 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class DebitAccountTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Balance calculated successfully")
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

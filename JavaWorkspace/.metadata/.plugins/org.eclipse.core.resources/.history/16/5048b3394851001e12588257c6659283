@@ -1,0 +1,20 @@
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class PhysicalFilm extends Film {
+
+	private int numberOfReels;
+	private BigDecimal lengthOfReel;
+
+	public PhysicalFilm(int filmId, String filmTitle, LocalDate timeStamp, int numberOfReels, BigDecimal lengthOfReel) {
+		super(filmId, filmTitle, timeStamp);
+		this.numberOfReels = numberOfReels;
+		this.lengthOfReel = this.lengthOfReel;
+	}
+	
+	@Override
+	public BigDecimal runningTime() {
+		return lengthOfReel.multiply(new BigDecimal(numberOfReels)).setScale(2);
+	}
+	
+}

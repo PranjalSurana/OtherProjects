@@ -1,0 +1,12 @@
+
+public class CheckingAccount implements Account {
+	
+	private int balance;
+
+	@Override
+	public void deposit(int amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

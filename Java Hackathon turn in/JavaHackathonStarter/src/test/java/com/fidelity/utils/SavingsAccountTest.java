@@ -1,0 +1,32 @@
+package com.fidelity.utils;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class SavingsAccountTest {
+
+	private SavingsAccount savingsAccounttTest;
+
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_GreaterValue() {
+		savingsAccounttTest = new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2021, 11, 1));
+		BigDecimal currBalance = savingsAccounttTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("11200"), currBalance);
+	}
+	
+	
+	@Test
+	@DisplayName("calculateCurrentBalanceTest: Value is greater than Fee")
+	void calculateCurrentBalanceTest_CurrentDayAfterStartDate() {
+		savingsAccounttTest = new SavingsAccount("acc2", new BigDecimal(1600), new BigDecimal(7), LocalDate.of(2024, 11, 1));
+		BigDecimal currBalance = savingsAccounttTest.calculateCurrentBalance();
+		assertEquals(new BigDecimal("1600"), currBalance);
+	}
+
+}

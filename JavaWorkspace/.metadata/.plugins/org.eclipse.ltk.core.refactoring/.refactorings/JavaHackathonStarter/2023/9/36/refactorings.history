@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;com.fidelity.utils.Account.accountNumber&apos; in &apos;com.fidelity.utils.Account&apos;&#x0D;&#x0A;- Original project: &apos;JavaHackathonStarter&apos;&#x0D;&#x0A;- Original element: &apos;com.fidelity.utils.Account.accountNumber&apos;&#x0D;&#x0A;- Getter method name: &apos;getAccountNumber&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;accountNumber&apos;" flags="589830" getter="getAccountNumber" id="org.eclipse.jdt.ui.self.encapsulate" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.fidelity.utils{Account.java[Account^accountNumber" insertion="1" stamp="1694169224842" version="1.0" visibility="1"/>
+</session>

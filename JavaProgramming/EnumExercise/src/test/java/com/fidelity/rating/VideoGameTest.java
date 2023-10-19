@@ -1,0 +1,95 @@
+package com.fidelity.rating;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+class VideoGameTest {
+
+	@Test
+	void testConstructorWithRating_Everyone() {
+		// TODO: this is how a rating should be set...
+		EsrbRating rating = EsrbRating.EVERYONE;
+
+		String title = "The Legend of Zelda: The Ocarina of Time";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		
+		assertEquals(EsrbRating.EVERYONE, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Everyone10Plus() {
+		// TODO: ...but the compiler allows any String to be used as a rating
+		EsrbRating rating = EsrbRating.EVERYONE_10_PLUS;
+		
+		String title = "The Legend of Zelda: Breath of the Wild";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		
+		assertEquals(EsrbRating.EVERYONE_10_PLUS, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Teen() {
+		// TODO: the compiler doesn't check spelling or case sensitivity
+		EsrbRating rating = EsrbRating.TEEN;
+		
+		String title = "Fortnight"; 
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		
+		assertEquals(EsrbRating.TEEN, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_Mature() {
+		// TODO: in this case, the rating is spelled correctly...
+		EsrbRating rating = EsrbRating.MATURE;
+		
+		String title = "Starfield";
+
+		// TODO: ...but the constructor arguments are in the wrong order
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		
+		assertEquals(EsrbRating.MATURE, actualRating);
+	}
+
+	@Test
+	void testConstructorWithRating_AdultsOnly() {
+		// TODO: any string can be used as a rating
+		EsrbRating rating = EsrbRating.ADULTS_ONLY;
+		
+		String title = "Singles";
+
+		VideoGame videoGame = new VideoGame(title, rating);
+		
+		EsrbRating actualRating = videoGame.getRating();
+		String gameDescription = actualRating.getMessage();
+		
+		assertEquals(EsrbRating.ADULTS_ONLY, actualRating);
+		assertEquals("Adults Only", gameDescription);
+	}
+
+//	@Test
+//	void testConstructorWithRating_RatingPending() {
+//		// TODO: an empty string can be used as a rating
+//		EsrbRating rating =  "";
+//		
+//		String title = "The Java Chronicles";
+//
+//		VideoGame videoGame = new VideoGame(title, rating);
+//		
+//		String actualRating = videoGame.getRating();
+//		
+//		assertEquals(VideoGame.RATING_PENDING, actualRating);
+//	}
+}

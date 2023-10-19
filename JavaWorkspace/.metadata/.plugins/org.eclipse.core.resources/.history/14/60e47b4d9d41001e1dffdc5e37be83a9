@@ -1,0 +1,14 @@
+
+public class Check {
+
+	private String accHolderName;
+	private int checkAmount;
+	
+	Check(String accHolderName, int checkAmount) {
+		accHolderName = this.accHolderName;
+		checkAmount = this.checkAmount;
+	}
+	
+	public getC
+	
+}
